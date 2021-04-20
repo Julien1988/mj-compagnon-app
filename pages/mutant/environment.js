@@ -7,7 +7,7 @@ const Environment = (data) => {
         <div className="container">
             <h1>environment</h1>
             <Card>
-                <Card.Content>
+                {/* <Card.Content>
                     <Card.Header>
                     <p>{data[0].environment}</p>
                     </Card.Header>
@@ -29,7 +29,7 @@ const Environment = (data) => {
                             ? <p>Artefacts</p>
                             : <p>Pas d'artefact</p>
                     }
-                </Card.Content>
+                </Card.Content> */}
                 </Card>
         </div>
     )
@@ -39,10 +39,15 @@ Environment.getInitialProps = async () => {
 
     // get random environment
     let dataArray = [];
-    let randomNumber = Math.floor(Math.random() * 13);
-    const res = await fetch('http://localhost:3000/api/mutant/environment');
-    const data = await res.json();
-    dataArray.push(data[randomNumber])
+    let randomEnvironment = Math.floor(Math.random() * 13);
+    let randomRuin = Math.floor(Math.random() * 40);
+    const resEnvironment = await fetch('http://localhost:3000/api/mutant/environment');
+    const dataEnvironment = await resEnvironment.json();
+    const resRuin = await fetch('http://localhost:3000/api/mutant/ruin');
+    const dataRuin = await resRuin.json();
+    console.log(dataRuin);
+    dataArray.push(dataEnvironment[randomEnvironment])
+    dataArray.push(dataRuin[randomRuin])
     return dataArray;
     
   }
