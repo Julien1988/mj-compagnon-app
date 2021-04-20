@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import {Card} from 'semantic-ui-react'
 
-const Environment = () => {
-    
+const Environment = (data) => {
+    console.log(data)
     return (
         <div className="container">
             <h1>environment</h1>
