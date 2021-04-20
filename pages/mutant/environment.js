@@ -9,11 +9,27 @@ const Environment = (data) => {
             <Card>
                 <Card.Content>
                     <Card.Header>
-                    <p>Card Header</p>
+                    <p>{data[0].environment}</p>
                     </Card.Header>
-                    <p>CONTENT</p>
+                    {
+                        data[0].ruin
+                        
+                            ? <p>Ruines</p>
+                            : <p>Pas de ruine</p>
+                    }
+                    {
+                        data[0].menace
+                        
+                            ? <p>Menaces</p>
+                            : <p>Pas de menace</p>
+                    }
+                    {
+                        data[0].artifact
+                        
+                            ? <p>Artefacts</p>
+                            : <p>Pas d'artefact</p>
+                    }
                 </Card.Content>
-                
                 </Card>
         </div>
     )
