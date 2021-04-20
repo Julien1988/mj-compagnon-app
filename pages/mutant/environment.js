@@ -20,12 +20,11 @@ const Environment = () => {
 }
 
 Environment.getInitialProps = async () => {
-   const res = await fetch('http://localhost:3000/api/hello');
-    const { name } = await res.json();
-  
-    console.log(name)
-    return name 
 
+   const res = await fetch('http://localhost:3000/api/mutant/environment');
+    const data = await res.json();
+    console.log(data)
+    return data 
   }
 
 
