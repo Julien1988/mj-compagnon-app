@@ -11,7 +11,7 @@ h1, h2 {
 .navbar {
     padding: 20px;
     margin-bottom: 20px;
-    background: blue;
+    background: #4183c4;;
     display: flex;
     color: white;
     justify-content: space-between;
@@ -24,4 +24,18 @@ h1, h2 {
 
 .navbar-brand:hover {
     color: white;
+}
+
+.list-container {
+    padding-left: inherit;
+}
+.list {
+    text-align: center;
+    list-style-type: none;
+    font-size: 1.5rem;
+    padding-bottom: 0.5em;
+}
+
+.list-link:hover {
+    color: rgb(131, 130, 130);
 }

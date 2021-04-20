@@ -7,14 +7,14 @@ const Index = () => {
     <div className="container">
       <h1>Bienvenu sur le compagnion du MJ</h1>
       <h2>Choisisez un jeu</h2>
-      <ul>
-        <li>
-          <Link href="mutant">
+      <ul className="list-container">
+        <li className="list">
+          <Link href="/mutant">
             <a className="list-link">Mutant</a>
           </Link>
         </li>
-        <li>
-          <Link href="alien">
+        <li className="list">
+          <Link href="/alien">
             <a className="list-link">Alien</a>
           </Link>
         </li>
