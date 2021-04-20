@@ -39,3 +39,7 @@ h1, h2 {
 .list-link:hover {
     color: rgb(131, 130, 130);
 }
+
+.card {
+    margin: auto !important;
+}
