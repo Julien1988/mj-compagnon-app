@@ -122,6 +122,27 @@ export default (req, res) => {
         39: {
             type_of_ruin: 'Éolienne',
         },
+        40: {
+            type_of_ruin: 'Épave de bateau',
+        },
+        41: {
+            type_of_ruin: 'Lignes à haute tension',
+        },
+        42: {
+            type_of_ruin: 'Pipeline',
+        },
+        43: {
+            type_of_ruin: 'Raffinerie',
+        },
+        44: {
+            type_of_ruin: 'Réservoir de pétrole',
+        },
+        45: {
+            type_of_ruin: 'Station d’épuration',
+        },
+        46: {
+            type_of_ruin: 'Usine',
+        },
       
     })
   }

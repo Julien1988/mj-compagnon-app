@@ -40,12 +40,11 @@ Environment.getInitialProps = async () => {
     // get random environment
     let dataArray = [];
     let randomEnvironment = Math.floor(Math.random() * 13);
-    let randomRuin = Math.floor(Math.random() * 40);
+    let randomRuin = Math.floor(Math.random() * 47);
     const resEnvironment = await fetch('http://localhost:3000/api/mutant/environment');
     const dataEnvironment = await resEnvironment.json();
     const resRuin = await fetch('http://localhost:3000/api/mutant/ruin');
     const dataRuin = await resRuin.json();
-    console.log(dataRuin);
     dataArray.push(dataEnvironment[randomEnvironment])
     dataArray.push(dataRuin[randomRuin])
     return dataArray;
