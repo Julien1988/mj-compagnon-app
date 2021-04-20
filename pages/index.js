@@ -1,25 +1,27 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import Link from 'next/link';
+import fetch from 'isomorphic-unfetch';
+//import {   } from 'semantic-ui-react';
 
-export default function Home() {
+const Index = () => {
   return (
-    <div className={styles.container}>
-     
+    <div className="container">
+      <h1>Bienvenu sur le compagnion du MJ</h1>
+      <h2>Choisisez un jeu</h2>
+      <ul>
+        <li>
+          <Link href="mutant">
+            <a className="list-link">Mutant</a>
+          </Link>
+        </li>
+        <li>
+          <Link href="alien">
+            <a className="list-link">Alien</a>
+          </Link>
+        </li>
+      </ul>
 
-      <main className={styles.main}>
-        Hello
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
     </div>
   )
 }
+
+export default Index;
