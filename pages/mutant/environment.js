@@ -5,7 +5,7 @@ const Environment = (data) => {
     console.log(data)
     return (
         <div className="container">
-            <h1>environment</h1>
+            <h1>environnement</h1>
             <Card>
                 {/* <Card.Content>
                     <Card.Header>
@@ -99,13 +99,15 @@ Environment.getInitialProps = async () => {
         }
     }
     console.log(diceMenaceCount, diceArtifactCount)
-    //console.log(diceArray);
+    
     const menaceAndArtifactNumberArray = {
         menaces: diceMenaceCount,
         artifacts: diceArtifactCount
     };
 
-    //console.log(menaceAndArtifactNumberArray)
+    // type of menace
+
+  
     
 
     // push all datas in array
