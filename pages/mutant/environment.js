@@ -2,7 +2,7 @@ import Link from 'next/link';
 import {Card} from 'semantic-ui-react'
 
 const Environment = (data) => {
-    console.log(data)
+    //console.log(data)
     return (
         <div className="container">
             <h1>environment</h1>
@@ -44,8 +44,12 @@ Environment.getInitialProps = async () => {
     // get random environment
     let dataArray = [];
     let randomEnvironment = Math.floor(Math.random() * 13);
+    // get random ruin
     let randomRuin = Math.floor(Math.random() * 47);
+    // get random gangrene
     let randomGangrene = Math.round(getRandomArbitrary(11, 66));
+    // get random menace
+    let randomMenace = Math.floor(Math.random() * 9);
     // get environment
     const resEnvironment = await fetch('http://localhost:3000/api/mutant/environment');
     const dataEnvironment = await resEnvironment.json();
@@ -67,16 +71,27 @@ Environment.getInitialProps = async () => {
         randomPropGangrene = 2
         //console.log("plus grand que 55", randomGangrene)
     }
+    // get menace
+    let randomPropMenace = 0;
+    const resMenace = await fetch('http://localhost:3000/api/mutant/menace');
+    const dataMenace = await resMenace.json();
+    if (randomMenace < 5) {
+        randomPropMenace = 0;
+    } else if ( randomMenace > 4 && randomMenace < 9) {
+        randomPropMenace = 1;
+    } else {
+        randomPropMenace = 2;
+    }
+    dataMenace[randomPropMenace]['level'] = randomMenace;
+    console.log(dataMenace[randomPropMenace])
     
     
-
-    console.log(dataGangrene)
-    console.log(randomGangrene)
 
     // push all datas in array
     dataArray.push(dataEnvironment[randomEnvironment])
     dataArray.push(dataRuin[randomRuin])
     dataArray.push(dataGangrene[randomPropGangrene])
+    dataArray.push(dataMenace[randomPropMenace])
     
     return dataArray;
     

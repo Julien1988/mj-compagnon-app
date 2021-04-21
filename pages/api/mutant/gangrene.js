@@ -12,7 +12,7 @@ export default (req, res) => {
             description: "Gangrène faible. Les PJ subissent un point de Gangrène par jour."
         },
         2: {
-            level: 1,
+            level: 2,
             description: "Gangrène forte. Les PJ subissent un point de Gangrène par heure."
         },
        
