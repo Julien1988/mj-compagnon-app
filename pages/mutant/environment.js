@@ -2,7 +2,7 @@ import Link from 'next/link';
 import {Card} from 'semantic-ui-react'
 
 const Environment = (data) => {
-    console.log(data)
+    //console.log(data)
     return (
         <div className="container">
             <h1>environnement</h1>
@@ -84,21 +84,21 @@ Environment.getInitialProps = async () => {
     }
     // get the lvl exact menace number to the object
     dataMenace[randomPropMenace]['level'] = randomMenace;
-    console.log(dataMenace[randomPropMenace])
+    //console.log(dataMenace[randomPropMenace])
 
     // Menace and Artifact 
     let diceMenaceCount = 0;
     let diceArtifactCount = 0;
     for (let i = 0; i < randomMenace; i++) {
         let randomDice = Math.floor(Math.random() * 6);
-        console.log(randomDice)
+        //console.log(randomDice)
         if (randomDice == 0) {
             diceMenaceCount++
         } else if (randomDice == 5) {
             diceArtifactCount++
         }
     }
-    console.log(diceMenaceCount, diceArtifactCount)
+    //console.log(diceMenaceCount, diceArtifactCount)
     
     const menaceAndArtifactNumberArray = {
         menaces: diceMenaceCount,
@@ -106,7 +106,27 @@ Environment.getInitialProps = async () => {
     };
 
     // type of menace
-
+    let menacesArray = {
+        humanoides: 0,
+        monstres: 0,
+        phenomenes: 0
+    };
+    console.log(diceMenaceCount)
+    if (diceMenaceCount > 0) {
+        for (let i = 0; i < diceMenaceCount; i++) {
+            const typeOfMenace = Math.floor(Math.random() * 6) + 1;
+            console.log(typeOfMenace)
+            if (typeOfMenace < 3) {
+                menacesArray['humanoides'] = menacesArray['humanoides']+1
+                
+            } else if (typeOfMenace > 2 && typeOfMenace < 6) {
+                menacesArray['monstres'] = menacesArray['monstres']+1
+            } else if (typeOfMenace > 6){
+                menacesArray['phenomenes'] = menacesArray['phenomenes']+1
+            }
+        }
+    } 
+    console.log(menacesArray)
   
     
 
