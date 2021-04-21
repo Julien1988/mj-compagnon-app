@@ -2,7 +2,7 @@ import Link from 'next/link';
 import {Card} from 'semantic-ui-react'
 
 const Environment = (data) => {
-    //console.log(data)
+    console.log(data)
     return (
         <div className="container">
             <h1>environment</h1>
@@ -82,9 +82,30 @@ Environment.getInitialProps = async () => {
     } else {
         randomPropMenace = 2;
     }
+    // get the lvl exact menace number to the object
     dataMenace[randomPropMenace]['level'] = randomMenace;
     console.log(dataMenace[randomPropMenace])
-    
+
+    // Menace and Artifact 
+    let diceMenaceCount = 0;
+    let diceArtifactCount = 0;
+    for (let i = 0; i < randomMenace; i++) {
+        let randomDice = Math.floor(Math.random() * 6);
+        console.log(randomDice)
+        if (randomDice == 0) {
+            diceMenaceCount++
+        } else if (randomDice == 5) {
+            diceArtifactCount++
+        }
+    }
+    console.log(diceMenaceCount, diceArtifactCount)
+    //console.log(diceArray);
+    const menaceAndArtifactNumberArray = {
+        menaces: diceMenaceCount,
+        artifacts: diceArtifactCount
+    };
+
+    //console.log(menaceAndArtifactNumberArray)
     
 
     // push all datas in array
@@ -92,6 +113,7 @@ Environment.getInitialProps = async () => {
     dataArray.push(dataRuin[randomRuin])
     dataArray.push(dataGangrene[randomPropGangrene])
     dataArray.push(dataMenace[randomPropMenace])
+    dataArray.push(menaceAndArtifactNumberArray);
     
     return dataArray;
     
