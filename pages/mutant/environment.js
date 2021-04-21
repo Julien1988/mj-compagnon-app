@@ -36,17 +36,48 @@ const Environment = (data) => {
 }
 
 Environment.getInitialProps = async () => {
+    // utils fonct
+    const getRandomArbitrary = (min, max) => {
+        return Math.random() * (max - min) + min;
+      }
 
     // get random environment
     let dataArray = [];
     let randomEnvironment = Math.floor(Math.random() * 13);
     let randomRuin = Math.floor(Math.random() * 47);
+    let randomGangrene = Math.round(getRandomArbitrary(11, 66));
+    // get environment
     const resEnvironment = await fetch('http://localhost:3000/api/mutant/environment');
     const dataEnvironment = await resEnvironment.json();
+    // get ruin
     const resRuin = await fetch('http://localhost:3000/api/mutant/ruin');
     const dataRuin = await resRuin.json();
+    // get gangrene
+    let randomPropGangrene = 0;
+    const resGangrene = await fetch('http://localhost:3000/api/mutant/gangrene');
+    const dataGangrene = await resGangrene.json();
+    if (randomGangrene > 0 && randomGangrene < 13) {
+        randomPropGangrene = 0
+        //console.log("plus petit que 12", randomGangrene)
+
+    } else if (randomGangrene > 12 && randomGangrene < 56) {
+        randomPropGangrene = 1
+        //console.log("plus petit que 55", randomGangrene)
+    } else {
+        randomPropGangrene = 2
+        //console.log("plus grand que 55", randomGangrene)
+    }
+    
+    
+
+    console.log(dataGangrene)
+    console.log(randomGangrene)
+
+    // push all datas in array
     dataArray.push(dataEnvironment[randomEnvironment])
     dataArray.push(dataRuin[randomRuin])
+    dataArray.push(dataGangrene[randomPropGangrene])
+    
     return dataArray;
     
   }
