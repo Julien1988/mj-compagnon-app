@@ -109,7 +109,7 @@ Environment.getInitialProps = async () => {
     let menacesArray = {
         humanoides: 0,
         monsters: 0,
-        phenomenes: 0
+        phenomenon: 0
     };
     console.log(diceMenaceCount)
     if (diceMenaceCount > 0) {
@@ -122,7 +122,7 @@ Environment.getInitialProps = async () => {
             } else if (typeOfMenace > 2 && typeOfMenace < 6) {
                 menacesArray['monsters'] = menacesArray['monsters']+1
             } else if (typeOfMenace > 6) {
-                menacesArray['phenomenes'] = menacesArray['phenomenes']+1
+                menacesArray['phenomenon'] = menacesArray['phenomenon']+1
             }
         }
     } 

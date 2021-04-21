@@ -3,49 +3,49 @@
 export default (req, res) => {
     res.status(200).json({
         0: {
-            name: "Adorateurs de Nova"
+            humanoide: "Adorateurs de Nova"
         },
         1: {
-            name: "Amnésique"
+            humanoide: "Amnésique"
         },
         2: {
-            name: "Animaux mutants"
+            humanoide: "Animaux mutants"
         },
         3: {
-            name: "Cannibales"
+            humanoide: "Cannibales"
         },
         4: {
-            name: "Disciples de l’Apocalypse"
+            humanoide: "Disciples de l’Apocalypse"
         },
         5: {
-            name: "Expédition d’une autre Arche"
+            humanoide: "Expédition d’une autre Arche"
         },
         6: {
-            name: "Goules de la Zone"
+            humanoide: "Goules de la Zone"
         },
         7: {
-            name: "Helldrivers"
+            humanoide: "Helldrivers"
         },
         8: {
-            name: "Morlocks"
+            humanoide: "Morlocks"
         },
         9: {
-            name: "Mutants exilés"
+            humanoide: "Mutants exilés"
         },
         10: {
-            name: "Oracle du bric-à-brac"
+            humanoide: "Oracle du bric-à-brac"
         },
         11: {
-            name: "Patrouille de l’Arche"
+            humanoide: "Patrouille de l’Arche"
         },
         12: {
-            name: "Piégeurs"
+            humanoide: "Piégeurs"
         },
         13: {
-            name: "Vagabonds"
+            humanoide: "Vagabonds"
         },
         14: {
-            name: "Vendeur d’eau"
+            humanoide: "Vendeur d’eau"
         },
         
      })

@@ -3,73 +3,73 @@
 export default (req, res) => {
     res.status(200).json({
         0: {
-            name: "Araignée de la Zone"
+            monster: "Araignée de la Zone"
         },
         1: {
-            name: "Arbre tueur"
+            monster: "Arbre tueur"
         },
         2: {
-            name: "Automate"
+            monster: "Automate"
         },
         3: {
-            name: "Bête corrosive"
+            monster: "Bête corrosive"
         },
         4: {
-            name: "Brouteurs"
+            monster: "Brouteurs"
         },
         5: {
-            name: "Champignon parasite"
+            monster: "Champignon parasite"
         },
         6: {
-            name: "Chiens de la Zone"
+            monster: "Chiens de la Zone"
         },
         7: {
-            name: "Corbeaux ferrailleur"
+            monster: "Corbeaux ferrailleur"
         },
         8: {
-            name: "Dévoreur"
+            monster: "Dévoreur"
         },
         9: {
-            name: "Faucon des ordures"
+            monster: "Faucon des ordures"
         },
         10: {
-            name: "Fleurs de cauchemar"
+            monster: "Fleurs de cauchemar"
         },
         11: {
-            name: "Fourmis de la Gangrène"
+            monster: "Fourmis de la Gangrène"
         },
         12: {
-            name: "Guêpes de la Zone"
+            monster: "Guêpes de la Zone"
         },
         14: {
-            name: "Herbe corrosive"
+            monster: "Herbe corrosive"
         },
         15: {
-            name: "Méduses volantes"
+            monster: "Méduses volantes"
         },
         16: {
-            name: "Moustiques mentaux"
+            monster: "Moustiques mentaux"
         },
         17: {
-            name: "Nuée de vers"
+            monster: "Nuée de vers"
         },
         18: {
-            name: "Poisson de la Gangrène"
+            monster: "Poisson de la Gangrène"
         },
         19: {
-            name: "Poisson des boyaux (eau gangrenée)"
+            monster: "Poisson des boyaux (eau gangrenée)"
         },
         20: {
-            name: "Rats de la Zone"
+            monster: "Rats de la Zone"
         },
         21: {
-            name: "Razorback"
+            monster: "Razorback"
         },
         22: {
-            name: "Sangsues de la Zone"
+            monster: "Sangsues de la Zone"
         },
         23: {
-            name: "Ver de mort"
+            monster: "Ver de mort"
         },
 
         
