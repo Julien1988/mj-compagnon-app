@@ -129,7 +129,7 @@ Environment.getInitialProps = async () => {
     console.log(menacesArray)
 
     // get the menace by type
-    // TODO
+    // TODO -- Tirer au hazard les différentes sortes de menace en fonction des type de menaces possible puis faire de même pour les artefacts
   
     
 
