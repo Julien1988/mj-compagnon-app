@@ -165,7 +165,7 @@ Environment.getInitialProps = async () => {
         
 
     // get the menace by type
-    // TODO -- Tirer au hazard les différentes sortes de menace en fonction des type de menaces possible puis faire de même pour les artefacts
+    // TODO -- Tirer au hazard les différentes sortes d'artefacts et retirer le 99 du DEBUG
   
     
 
