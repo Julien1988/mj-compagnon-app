@@ -2,7 +2,7 @@ import Link from 'next/link';
 import {Card} from 'semantic-ui-react'
 
 const Environment = (data) => {
-    //console.log(data)
+    console.log(data)
     return (
         <div className="container">
             <h1>environnement</h1>
@@ -49,7 +49,7 @@ Environment.getInitialProps = async () => {
     // get random gangrene
     let randomGangrene = Math.round(getRandomArbitrary(11, 66));
     // get random menace
-    let randomMenace = Math.floor(Math.random() * 9);
+    let randomMenace = Math.floor(Math.random() * 99);
     // get environment
     const resEnvironment = await fetch('http://localhost:3000/api/mutant/environment');
     const dataEnvironment = await resEnvironment.json();
@@ -109,13 +109,13 @@ Environment.getInitialProps = async () => {
     let menacesArray = {
         humanoides: 0,
         monsters: 0,
-        phenomenon: 0
+        phenomenons: 0
     };
-    console.log(diceMenaceCount)
+    //console.log(diceMenaceCount)
     if (diceMenaceCount > 0) {
         for (let i = 0; i < diceMenaceCount; i++) {
             const typeOfMenace = Math.floor(Math.random() * 6) + 1;
-            console.log(typeOfMenace)
+            //console.log(typeOfMenace)
             if (typeOfMenace < 3) {
                 menacesArray['humanoides'] = menacesArray['humanoides']+1
                 
@@ -126,7 +126,43 @@ Environment.getInitialProps = async () => {
             }
         }
     } 
-    console.log(menacesArray)
+    //console.log(menacesArray)
+
+    let dataMenaceArray = [];
+    
+    if (menacesArray['humanoides'] > 0) {
+        // take humanoides 15
+        const resHumanoides = await fetch('http://localhost:3000/api/mutant/humanoide');
+        const dataHumanoides = await resHumanoides.json();
+        for (let i = 0; i < menacesArray['humanoides']; i++) {
+            let randomNumber = Math.floor(Math.random() * 15);
+            dataMenaceArray.push(dataHumanoides[randomNumber]);
+        }
+
+        
+    } else if (menacesArray['monsters'] > 0) {
+        // take monsters 24
+        const resMonsters = await fetch('http://localhost:3000/api/mutant/monster');
+        const dataMonsters = await resMonsters.json();
+        for (let i = 0; i < menacesArray['monsters']; i++) {
+            let randomNumber = Math.floor(Math.random() * 24);
+            dataMenaceArray.push(dataMonsters[randomNumber]);
+        }
+        
+    } else if (menacesArray['phenomenons'] > 0) {
+         // take pheniomenon 19
+         const resPhenomenons = await fetch('http://localhost:3000/api/mutant/phenomenon');
+        const dataPhenomenons = await resPhenomenons.json();
+        for (let i = 0; i < menacesArray['phenomenons']; i++) {
+            let randomNumber = Math.floor(Math.random() * 19);
+            dataMenaceArray.push(dataPhenomenons[randomNumber]);
+        }
+        
+    }
+    
+    console.log(dataMenaceArray);
+    
+        
 
     // get the menace by type
     // TODO -- Tirer au hazard les différentes sortes de menace en fonction des type de menaces possible puis faire de même pour les artefacts
@@ -139,6 +175,7 @@ Environment.getInitialProps = async () => {
     dataArray.push(dataGangrene[randomPropGangrene])
     dataArray.push(dataMenace[randomPropMenace])
     dataArray.push(menaceAndArtifactNumberArray);
+    dataArray.push(dataMenaceArray);
     
     return dataArray;
     
