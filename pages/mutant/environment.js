@@ -48,7 +48,7 @@ Environment.getInitialProps = async () => {
     let randomRuin = Math.floor(Math.random() * 47);
     // get random gangrene
     let randomGangrene = Math.round(getRandomArbitrary(11, 66));
-    // get random menace
+    // get random menace TODO DEBUG OFF !!!!
     let randomMenace = Math.floor(Math.random() * 99);
     // get environment
     const resEnvironment = await fetch('http://localhost:3000/api/mutant/environment');
@@ -140,7 +140,7 @@ Environment.getInitialProps = async () => {
         }
 
         
-    } else if (menacesArray['monsters'] > 0) {
+    } if (menacesArray['monsters'] > 0) {
         // take monsters 24
         const resMonsters = await fetch('http://localhost:3000/api/mutant/monster');
         const dataMonsters = await resMonsters.json();
@@ -149,7 +149,7 @@ Environment.getInitialProps = async () => {
             dataMenaceArray.push(dataMonsters[randomNumber]);
         }
         
-    } else if (menacesArray['phenomenons'] > 0) {
+    } if (menacesArray['phenomenons'] > 0) {
          // take pheniomenon 19
          const resPhenomenons = await fetch('http://localhost:3000/api/mutant/phenomenon');
         const dataPhenomenons = await resPhenomenons.json();
