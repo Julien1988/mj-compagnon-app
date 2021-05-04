@@ -41,34 +41,34 @@ export default (req, res) => {
         12: {
             monster: "Guêpes de la Zone"
         },
-        14: {
+        13: {
             monster: "Herbe corrosive"
         },
-        15: {
+        14: {
             monster: "Méduses volantes"
         },
-        16: {
+        15: {
             monster: "Moustiques mentaux"
         },
-        17: {
+        16: {
             monster: "Nuée de vers"
         },
-        18: {
+        17: {
             monster: "Poisson de la Gangrène"
         },
-        19: {
+        18: {
             monster: "Poisson des boyaux (eau gangrenée)"
         },
-        20: {
+        19: {
             monster: "Rats de la Zone"
         },
-        21: {
+        20: {
             monster: "Razorback"
         },
-        22: {
+        21: {
             monster: "Sangsues de la Zone"
         },
-        23: {
+        22: {
             monster: "Ver de mort"
         },
 

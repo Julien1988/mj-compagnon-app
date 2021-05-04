@@ -145,7 +145,7 @@ Environment.getInitialProps = async () => {
         const resMonsters = await fetch('http://localhost:3000/api/mutant/monster');
         const dataMonsters = await resMonsters.json();
         for (let i = 0; i < menacesArray['monsters']; i++) {
-            let randomNumber = Math.floor(Math.random() * 24);
+            let randomNumber = Math.floor(Math.random() * 23);
             dataMenaceArray.push(dataMonsters[randomNumber]);
         }
         
@@ -166,6 +166,7 @@ Environment.getInitialProps = async () => {
 
     // get the menace by type
     // TODO -- Tirer au hazard les différentes sortes d'artefacts et retirer le 99 du DEBUG
+    // attention empecher le fait d'avoir plusieurs fois le mm résultat
   
     
 

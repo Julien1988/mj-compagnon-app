@@ -93,7 +93,7 @@ export default (req, res) => {
             type_of_ruin: 'Station de radio',
         },
         30: {
-        type_of_ruin: 'Station-service',
+            type_of_ruin: 'Station-service',
         },
         31: {
             type_of_ruin: 'Supermarché',
