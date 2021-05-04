@@ -9,6 +9,15 @@ const Mutant = () => {
             <Link href="/mutant/environment">
                 <a className="list-link">Générer un environnement</a>
             </Link>
+            
+    
+                </li>
+                <li className="list">
+            <Link href="/mutant/environment">
+                <a className="list-link">Générer un PNJ TODO</a>
+            </Link>
+            
+    
             </li>
         
         </ul>
