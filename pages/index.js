@@ -13,11 +13,11 @@ const Index = () => {
             <a className="list-link">Mutant</a>
           </Link>
         </li>
-        <li className="list">
+        {/* <li className="list">
           <Link href="/alien">
             <a className="list-link">Alien</a>
           </Link>
-        </li>
+        </li> */}
       </ul>
 
     </div>
