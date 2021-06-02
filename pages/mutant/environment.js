@@ -5,105 +5,125 @@ import { CONST_URL } from '../../constants';
 
 const Environment = (data) => {
     console.log(data)
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const handleSubmit = () => {
+        setIsSubmitting(true);
+    }
+    useEffect(() => {
+        setIsSubmitting(false)
+        console.log('coucou')
+    },[data]);
   
     return (
         <div className="container main-container">
             <h1>Environnement</h1>
-            <Card>
+            {
+                isSubmitting
+                    ? <Loader active inline="centered"/>
+                    :    <div className="main-container__content">
+
             
-                        { <Card.Content>
-                        <Card.Header>
-                            <p>{data[0].environment}</p>
-                            
-                        </Card.Header>
-                        {
-                            data[0].ruin
-                                ? <p>{data[1].type_of_ruin}</p>
-                                : <p>Pas de ruine</p>
-                        }
-                        {
-                            data[2].level
-                                ? <p><b>Niveau de gangrène : {data[2].level} </b><br></br> {data[2].description}</p>
-                                : <p>Pas de mangrène</p>
-                            
-                        }
-                        {
-                            data[0].menace
-                                ?  <div>
-                                        {
-                                            data[3].level
-                                                ? <p><b>Niveau de danger : {data[3].level} </b><br></br> {data[3].description}</p>
-                                                : <p></p>
-                                            
-                                        }
-                                        {
-                                            data[5][0]
-                                            ? <p><b>Liste des menaces</b></p>
-                                            : <p><b>Pas de menace</b></p>
-                                        }
-                                        {data[5].map(da => {
-                                            return (
-                                                <div>
-                                                
-                                                    {
-                                                        da.humanoide
-                                                            ? <p>{da.humanoide}</p>
-                                                            : <p></p>
-                                                    }
-                                                    {
-                                                        da.monster
-                                                            ? <p>{da.monster}</p>
-                                                            : <p></p>
-                                                    }
-                                                    {
-                                                        da.phenomenon
-                                                            ? <p>{da.phenomenon}</p>
-                                                            : <p></p>
-                                                    }
-                                            </div>
-                                        )
-                                        })}
-                                    </div>
-                                : <p><b>Pas de menace dans ce secteur</b></p>
-                        }
-                        {
-                            data[0].artifact
-                                ? <div>
-                                    {
-                                        data[6][0]
-                                            ? <p><b>Liste des artefacts</b></p>
-                                            : <p><b>Pas d'artefact</b></p>
-                                    }
-                                    {data[6].map(da => {
-                                        return (
-                                            <div>
-                                            
-                                                {
-                                                    da.artifact
-                                                        ? <p>{da.artifact}</p>
-                                                        : <p></p>
-                                                }
-                                            
-                                        </div>
-                                    )
-                                    })}
-                                </div>
-                         
-                                : <p><b>Pas d'artefact dans ce secteur</b></p>
-                        }
-                        
+                    <Card>
     
                         
-                        </Card.Content>}
-                        
-            </Card>
-            <ul className="list-container">
-                            <li className="list">
-                            <Link href="/mutant/environment">
-                                <a className="list-link">Générer un autre environnement</a>
-                            </Link>
-                            </li>
+                    
+                                { <Card.Content>
+                                <Card.Header>
+                                    <p>{data[0].environment}</p>
+                                    
+                                </Card.Header>
+                                {
+                                    data[0].ruin
+                                        ? <p>{data[1].type_of_ruin}</p>
+                                        : <p>Pas de ruine</p>
+                                }
+                                {
+                                    data[2].level
+                                        ? <p><b>Niveau de gangrène : {data[2].level} </b><br></br> {data[2].description}</p>
+                                        : <p>Pas de mangrène</p>
+                                    
+                                }
+                                {
+                                    data[0].menace
+                                        ?  <div>
+                                                {
+                                                    data[3].level
+                                                        ? <p><b>Niveau de danger : {data[3].level} </b><br></br> {data[3].description}</p>
+                                                        : <p></p>
+                                                    
+                                                }
+                                                {
+                                                    data[5][0]
+                                                    ? <p><b>Liste des menaces</b></p>
+                                                    : <p><b>Pas de menace</b></p>
+                                                }
+                                                {data[5].map(da => {
+                                                    return (
+                                                        <div>
+                                                        
+                                                            {
+                                                                da.humanoide
+                                                                    ? <p>{da.humanoide}</p>
+                                                                    : <p></p>
+                                                            }
+                                                            {
+                                                                da.monster
+                                                                    ? <p>{da.monster}</p>
+                                                                    : <p></p>
+                                                            }
+                                                            {
+                                                                da.phenomenon
+                                                                    ? <p>{da.phenomenon}</p>
+                                                                    : <p></p>
+                                                            }
+                                                    </div>
+                                                )
+                                                })}
+                                            </div>
+                                        : <p><b>Pas de menace dans ce secteur</b></p>
+                                }
+                                {
+                                    data[0].artifact
+                                        ? <div>
+                                            {
+                                                data[6][0]
+                                                    ? <p><b>Liste des artefacts</b></p>
+                                                    : <p><b>Pas d'artefact</b></p>
+                                            }
+                                            {data[6].map(da => {
+                                                return (
+                                                    <div>
+                                                    
+                                                        {
+                                                            da.artifact
+                                                                ? <p>{da.artifact}</p>
+                                                                : <p></p>
+                                                        }
+                                                    
+                                                </div>
+                                            )
+                                            })}
+                                        </div>
+                                
+                                        : <p><b>Pas d'artefact dans ce secteur</b></p>
+                                }
+                                
+            
+                                
+                                </Card.Content>}         
+                    </Card>
+                    
+                    <ul className="list-container">
+                        <li className="list">
+                        <Link href="/mutant/environment">
+                            <a onClick={handleSubmit} className="list-link">Générer un autre environnement</a>
+                        </Link>
+                        </li>
                         </ul>
+                        
+                </div>
+            }
+         
             
         </div>
     )
