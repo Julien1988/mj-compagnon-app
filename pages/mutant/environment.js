@@ -50,6 +50,19 @@ const Environment = (data) => {
                                 }
                            </div>
                        )
+                    })}
+                    {data[6].map(da => {
+                        return (
+                            <div>
+                              
+                                {
+                                    da.artifact
+                                        ? <p>{da.artifact}</p>
+                                        : <p></p>
+                                }
+                               
+                           </div>
+                       )
                    })}
                   
                  
