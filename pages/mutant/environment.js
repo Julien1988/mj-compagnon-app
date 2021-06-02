@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Card, Loader } from 'semantic-ui-react'
-import {useState, useEffect} from 'react'
+import { useState, useEffect } from 'react'
+import { CONST_URL } from '../../constants';
 
 const Environment = (data) => {
     console.log(data)
@@ -110,8 +111,6 @@ const Environment = (data) => {
 
 Environment.getInitialProps = async () => {
     // dev / prod const
-    //const CONST_URL = 'https://boring-kalam-20f4b5.netlify.app'
-    const CONST_URL = 'http://localhost:3000'
     // utils fonct
     const getRandomArbitrary = (min, max) => {
         return Math.random() * (max - min) + min;
