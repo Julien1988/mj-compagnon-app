@@ -201,7 +201,7 @@ Environment.getInitialProps = async () => {
     let dataArtifactArray = [];
     for (let i = 0; i < diceArtifactCount; i++) {
         let randomNumber = Math.floor(Math.random() * 50);
-        const resArtifacts = await fetch('http://'+CONST_URL+'/api/mutant/artifacts');
+        const resArtifacts = await fetch(CONST_URL+'/api/mutant/artifacts');
         const dataArtifacts = await resArtifacts.json();
         //console.log(dataArtifacts[randomNumber]);
         dataArtifactArray.push(dataArtifacts[randomNumber])
