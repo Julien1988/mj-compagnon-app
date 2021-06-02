@@ -35,7 +35,7 @@ const Environment = (data) => {
                                     }
                                     {
                                         data[5][0]
-                                        ? <p><b>List des menaces</b></p>
+                                        ? <p><b>Liste des menaces</b></p>
                                         : <p><b>Pas de menace</b></p>
                                     }
                                     {data[5].map(da => {
@@ -68,7 +68,7 @@ const Environment = (data) => {
                             ? <div>
                                 {
                                     data[6][0]
-                                        ? <p><b>List des artefacts</b></p>
+                                        ? <p><b>Liste des artefacts</b></p>
                                         : <p><b>Pas d'artefact</b></p>
                                 }
                                 {data[6].map(da => {
