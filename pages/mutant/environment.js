@@ -25,58 +25,70 @@ const Environment = (data) => {
                         
                     }
                     {
-                        data[3].level
-                            ? <p><b>Niveau de danger : {data[3].level} </b><br></br> {data[3].description}</p>
-                            : <p></p>
-                        
+                        data[0].menace
+                            ?  <div>
+                                    {
+                                        data[3].level
+                                            ? <p><b>Niveau de danger : {data[3].level} </b><br></br> {data[3].description}</p>
+                                            : <p></p>
+                                        
+                                    }
+                                    {
+                                        data[5][0]
+                                        ? <p><b>List des menaces</b></p>
+                                        : <p><b>Pas de menace</b></p>
+                                    }
+                                    {data[5].map(da => {
+                                        return (
+                                            <div>
+                                            
+                                                {
+                                                    da.humanoide
+                                                        ? <p>{da.humanoide}</p>
+                                                        : <p></p>
+                                                }
+                                                {
+                                                    da.monster
+                                                        ? <p>{da.monster}</p>
+                                                        : <p></p>
+                                                }
+                                                {
+                                                    da.phenomenon
+                                                        ? <p>{da.phenomenon}</p>
+                                                        : <p></p>
+                                                }
+                                        </div>
+                                    )
+                                    })}
+                                </div>
+                            : <p><b>Pas de menace dans ce secteur</b></p>
                     }
                     {
-                        data[5][0]
-                        ? <p><b>List des menaces</b></p>
-                        : <p><b>Pas menace</b></p>
+                        data[0].artifact
+                            ? <div>
+                                {
+                                    data[6][0]
+                                        ? <p><b>List des artefacts</b></p>
+                                        : <p><b>Pas d'artefact</b></p>
+                                }
+                                {data[6].map(da => {
+                                    return (
+                                        <div>
+                                        
+                                            {
+                                                da.artifact
+                                                    ? <p>{da.artifact}</p>
+                                                    : <p></p>
+                                            }
+                                        
+                                    </div>
+                                )
+                                })}
+                            </div>
+                     
+                            : <p><b>Pas d'artefact dans ce secteur</b></p>
                     }
-                    {data[5].map(da => {
-                        return (
-                            <div>
-                              
-                                {
-                                    da.humanoide
-                                        ? <p>{da.humanoide}</p>
-                                        : <p></p>
-                                }
-                                {
-                                    da.monster
-                                        ? <p>{da.monster}</p>
-                                        : <p></p>
-                                }
-                                {
-                                    da.phenomenon
-                                        ? <p>{da.phenomenon}</p>
-                                        : <p></p>
-                                }
-                           </div>
-                       )
-                    })}
-                    {
-                        data[6][0]
-                            ? <p><b>List des artefacts</b></p>
-                            : <p><b>Pas artefact</b></p>
-                    }
-                    {data[6].map(da => {
-                        return (
-                            <div>
-                              
-                                {
-                                    da.artifact
-                                        ? <p>{da.artifact}</p>
-                                        : <p></p>
-                                }
-                               
-                           </div>
-                       )
-                   })}
-                  
-                 
+                    
 
                     
                 </Card.Content> }
@@ -87,8 +99,8 @@ const Environment = (data) => {
 
 Environment.getInitialProps = async () => {
     // dev / prod const
-    const CONST_URL = 'https://boring-kalam-20f4b5.netlify.app'
-    //const CONST_URL = 'http://localhost:3000'
+    //const CONST_URL = 'https://boring-kalam-20f4b5.netlify.app'
+    const CONST_URL = 'http://localhost:3000'
     // utils fonct
     const getRandomArbitrary = (min, max) => {
         return Math.random() * (max - min) + min;
