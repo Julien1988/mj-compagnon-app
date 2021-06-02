@@ -12,13 +12,13 @@ const Mutant = () => {
             
     
                 </li>
-                <li className="list">
+                {/* <li className="list">
             <Link href="/mutant/environment">
                 <a className="list-link">Générer un PNJ TODO</a>
             </Link>
             
     
-            </li>
+            </li> */}
         
         </ul>
       </div>
