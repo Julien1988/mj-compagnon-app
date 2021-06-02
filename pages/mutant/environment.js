@@ -160,13 +160,23 @@ Environment.getInitialProps = async () => {
         
     }
     
-    console.log(dataMenaceArray);
+    //console.log(dataMenaceArray);
     
         
 
     // get the menace by type
     // TODO -- Tirer au hazard les différentes sortes d'artefacts et retirer le 99 du DEBUG
-    // attention empecher le fait d'avoir plusieurs fois le mm résultat
+    // TODO -- Modifier la probabilités d'artefact (d666)
+    // TODO -- attention empecher le fait d'avoir plusieurs fois le mm résultat
+    // Nombre d'artefacts : diceArtifactCount
+    let dataArtifactArray = [];
+    for (let i = 0; i < diceArtifactCount; i++) {
+        let randomNumber = Math.floor(Math.random() * 50);
+        const resArtifacts = await fetch('http://localhost:3000/api/mutant/artifacts');
+        const dataArtifacts = await resArtifacts.json();
+        //console.log(dataArtifacts[randomNumber]);
+        dataArtifactArray.push(dataArtifacts[randomNumber])
+    }
   
     
 
@@ -177,6 +187,7 @@ Environment.getInitialProps = async () => {
     dataArray.push(dataMenace[randomPropMenace])
     dataArray.push(menaceAndArtifactNumberArray);
     dataArray.push(dataMenaceArray);
+    dataArray.push(dataArtifactArray);
     
     return dataArray;
     
