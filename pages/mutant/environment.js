@@ -78,7 +78,7 @@ Environment.getInitialProps = async () => {
     // get random gangrene
     let randomGangrene = Math.round(getRandomArbitrary(11, 66));
     // get random menace TODO DEBUG OFF !!!!
-    let randomMenace = Math.floor(Math.random() * 99);
+    let randomMenace = Math.floor(Math.random() * 9);
     // get environment
     const resEnvironment = await fetch(CONST_URL+'/api/mutant/environment');
     const dataEnvironment = await resEnvironment.json();
