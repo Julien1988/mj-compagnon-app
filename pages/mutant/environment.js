@@ -62,6 +62,9 @@ const Environment = (data) => {
 }
 
 Environment.getInitialProps = async () => {
+    // dev / prod const
+    const CONST_URL = 'boring-kalam-20f4b5.netlify.app'
+    //const CONST_URL = 'http://localhost:3000'
     // utils fonct
     const getRandomArbitrary = (min, max) => {
         return Math.random() * (max - min) + min;
@@ -77,14 +80,14 @@ Environment.getInitialProps = async () => {
     // get random menace TODO DEBUG OFF !!!!
     let randomMenace = Math.floor(Math.random() * 99);
     // get environment
-    const resEnvironment = await fetch('http://localhost:3000/api/mutant/environment');
+    const resEnvironment = await fetch('http://'+CONST_URL+'/api/mutant/environment');
     const dataEnvironment = await resEnvironment.json();
     // get ruin
-    const resRuin = await fetch('http://localhost:3000/api/mutant/ruin');
+    const resRuin = await fetch('http://'+CONST_URL+'/api/mutant/ruin');
     const dataRuin = await resRuin.json();
     // get gangrene
     let randomPropGangrene = 0;
-    const resGangrene = await fetch('http://localhost:3000/api/mutant/gangrene');
+    const resGangrene = await fetch('http://'+CONST_URL+'/api/mutant/gangrene');
     const dataGangrene = await resGangrene.json();
     if (randomGangrene > 0 && randomGangrene < 13) {
         randomPropGangrene = 0
@@ -99,7 +102,7 @@ Environment.getInitialProps = async () => {
     }
     // get menace
     let randomPropMenace = 0;
-    const resMenace = await fetch('http://localhost:3000/api/mutant/menace');
+    const resMenace = await fetch('http://'+CONST_URL+'/api/mutant/menace');
     const dataMenace = await resMenace.json();
     if (randomMenace < 5) {
         randomPropMenace = 0;
@@ -158,7 +161,7 @@ Environment.getInitialProps = async () => {
     
     if (menacesArray['humanoides'] > 0) {
         // take humanoides 15
-        const resHumanoides = await fetch('http://localhost:3000/api/mutant/humanoide');
+        const resHumanoides = await fetch('http://'+CONST_URL+'/api/mutant/humanoide');
         const dataHumanoides = await resHumanoides.json();
         for (let i = 0; i < menacesArray['humanoides']; i++) {
             let randomNumber = Math.floor(Math.random() * 15);
@@ -168,7 +171,7 @@ Environment.getInitialProps = async () => {
         
     } if (menacesArray['monsters'] > 0) {
         // take monsters 24
-        const resMonsters = await fetch('http://localhost:3000/api/mutant/monster');
+        const resMonsters = await fetch('http://'+CONST_URL+'/api/mutant/monster');
         const dataMonsters = await resMonsters.json();
         for (let i = 0; i < menacesArray['monsters']; i++) {
             let randomNumber = Math.floor(Math.random() * 23);
@@ -177,7 +180,7 @@ Environment.getInitialProps = async () => {
         
     } if (menacesArray['phenomenons'] > 0) {
          // take pheniomenon 19
-         const resPhenomenons = await fetch('http://localhost:3000/api/mutant/phenomenon');
+         const resPhenomenons = await fetch('http://'+CONST_URL+'/api/mutant/phenomenon');
         const dataPhenomenons = await resPhenomenons.json();
         for (let i = 0; i < menacesArray['phenomenons']; i++) {
             let randomNumber = Math.floor(Math.random() * 19);
