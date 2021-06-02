@@ -3,7 +3,7 @@ import Link from 'next/link';
 const Navbar = () => (
     <nav className="navbar">
         <Link href="/">
-            <a className="navbar-brand ">MJ Compagnion App</a>
+            <a className="navbar-brand ">MJ Compagnon App</a>
         </Link>
 
     </nav>
