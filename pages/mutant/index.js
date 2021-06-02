@@ -1,26 +1,27 @@
 import Link from 'next/link'
+import {useState} from 'react'
+import { Loader } from 'semantic-ui-react'
 
 const Mutant = () => {
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const handleSubmit = () => {
+        setIsSubmitting(true);
+    }
     return (
-        <div className='container'>
+        <div className='container main-container'>
             <h1>Mutant page</h1>
-            <ul className="list-container">
-            <li className="list">
-            <Link href="/mutant/environment">
-                <a className="list-link">Générer un environnement</a>
-            </Link>
+            {
+                isSubmitting
+                    ? <Loader active inline="centered"/>
+                    :   <ul className="list-container">
+                            <li className="list">
+                            <Link href="/mutant/environment">
+                                <a onClick={handleSubmit} className="list-link">Générer un environnement</a>
+                            </Link>
+                            </li>
+                        </ul>
+            }
             
-    
-                </li>
-                {/* <li className="list">
-            <Link href="/mutant/environment">
-                <a className="list-link">Générer un PNJ TODO</a>
-            </Link>
-            
-    
-            </li> */}
-        
-        </ul>
       </div>
     )
 }
