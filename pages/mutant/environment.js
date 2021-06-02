@@ -7,29 +7,55 @@ const Environment = (data) => {
         <div className="container">
             <h1>environnement</h1>
             <Card>
-                {/* <Card.Content>
+            
+                { <Card.Content>
                     <Card.Header>
                     <p>{data[0].environment}</p>
                     </Card.Header>
                     {
-                        data[0].ruin
-                        
-                            ? <p>Ruines</p>
+                        data[1].type_of_ruin
+                            ? <p>{data[1].type_of_ruin}</p>
                             : <p>Pas de ruine</p>
                     }
                     {
-                        data[0].menace
+                        data[2].level
+                            ? <p> Niveau de gangrène : {data[2].level} <br></br> {data[2].description}</p>
+                            : <p>Pas de mangrène</p>
                         
-                            ? <p>Menaces</p>
-                            : <p>Pas de menace</p>
                     }
                     {
-                        data[0].artifact
+                        data[3].level
+                            ? <p> Niveau de danger : {data[3].level} <br></br> {data[3].description}</p>
+                            : <p>Pas de dangers</p>
                         
-                            ? <p>Artefacts</p>
-                            : <p>Pas d'artefact</p>
                     }
-                </Card.Content> */}
+                    {data[5].map(da => {
+                        return (
+                            <div>
+                              
+                                {
+                                    da.humanoide
+                                        ? <p>{da.humanoide}</p>
+                                        : <p></p>
+                                }
+                                {
+                                    da.monster
+                                        ? <p>{da.monster}</p>
+                                        : <p></p>
+                                }
+                                {
+                                    da.phenomenon
+                                        ? <p>{da.phenomenon}</p>
+                                        : <p></p>
+                                }
+                           </div>
+                       )
+                   })}
+                  
+                 
+
+                    
+                </Card.Content> }
                 </Card>
         </div>
     )
