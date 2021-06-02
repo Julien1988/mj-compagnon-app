@@ -5,29 +5,35 @@ const Environment = (data) => {
     console.log(data)
     return (
         <div className="container">
-            <h1>environnement</h1>
+            <h1>Environnement</h1>
             <Card>
             
                 { <Card.Content>
                     <Card.Header>
-                    <p>{data[0].environment}</p>
+                        <p>{data[0].environment}</p>
+                        
                     </Card.Header>
                     {
-                        data[1].type_of_ruin
+                        data[0].ruin
                             ? <p>{data[1].type_of_ruin}</p>
                             : <p>Pas de ruine</p>
                     }
                     {
                         data[2].level
-                            ? <p> Niveau de gangrène : {data[2].level} <br></br> {data[2].description}</p>
+                            ? <p><b>Niveau de gangrène : {data[2].level} </b><br></br> {data[2].description}</p>
                             : <p>Pas de mangrène</p>
                         
                     }
                     {
                         data[3].level
-                            ? <p> Niveau de danger : {data[3].level} <br></br> {data[3].description}</p>
-                            : <p>Pas de dangers</p>
+                            ? <p><b>Niveau de danger : {data[3].level} </b><br></br> {data[3].description}</p>
+                            : <p></p>
                         
+                    }
+                    {
+                        data[5][0]
+                        ? <p><b>List des menaces</b></p>
+                        : <p><b>Pas menace</b></p>
                     }
                     {data[5].map(da => {
                         return (
@@ -51,6 +57,11 @@ const Environment = (data) => {
                            </div>
                        )
                     })}
+                    {
+                        data[6][0]
+                            ? <p><b>List des artefacts</b></p>
+                            : <p><b>Pas artefact</b></p>
+                    }
                     {data[6].map(da => {
                         return (
                             <div>
