@@ -6,7 +6,7 @@ const Environment = (data) => {
     console.log(data)
   
     return (
-        <div className="container">
+        <div className="container main-container">
             <h1>Environnement</h1>
             <Card>
             

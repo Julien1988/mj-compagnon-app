@@ -10,7 +10,6 @@ h1, h2 {
 
 .navbar {
     padding: 20px;
-    margin-bottom: 20px;
     background: #4183c4;;
     display: flex;
     color: white;
@@ -42,4 +41,24 @@ h1, h2 {
 
 .card {
     margin: auto !important;
+}
+
+#__next {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.main-container {
+    height: 100%;
+    padding-top: 2em;
+}
+
+footer {
+    background-color: black;
+    
+}
+.footer__text {
+    color: white;
 }

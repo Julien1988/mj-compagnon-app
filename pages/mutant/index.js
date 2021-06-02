@@ -8,7 +8,7 @@ const Mutant = () => {
         setIsSubmitting(true);
     }
     return (
-        <div className='container'>
+        <div className='container main-container'>
             <h1>Mutant page</h1>
             {
                 isSubmitting

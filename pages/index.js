@@ -4,7 +4,7 @@ import fetch from 'isomorphic-unfetch';
 
 const Index = () => {
   return (
-    <div className="container">
+    <div className="container main-container">
       <h1>Bienvenu sur le compagnon du MJ</h1>
       <h2>Choisisez un jeu</h2>
       <ul className="list-container">
