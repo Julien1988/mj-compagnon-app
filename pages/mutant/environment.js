@@ -99,8 +99,8 @@ const Environment = (data) => {
 
 Environment.getInitialProps = async () => {
     // dev / prod const
-    //const CONST_URL = 'https://boring-kalam-20f4b5.netlify.app'
-    const CONST_URL = 'http://localhost:3000'
+    const CONST_URL = 'https://boring-kalam-20f4b5.netlify.app'
+    //const CONST_URL = 'http://localhost:3000'
     // utils fonct
     const getRandomArbitrary = (min, max) => {
         return Math.random() * (max - min) + min;
