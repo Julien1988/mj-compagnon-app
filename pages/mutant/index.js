@@ -24,6 +24,11 @@ const Mutant = () => {
                                 <a onClick={handleSubmit} className="list-link">Générer une menace de l'arche</a>
                             </Link>
                             </li>
+                             <li className="list">
+                            <Link href="/mutant/pnj-generator">
+                                <a onClick={handleSubmit} className="list-link">Générer un PNJ</a>
+                            </Link>
+                            </li>
                         </ul>
             }
             
