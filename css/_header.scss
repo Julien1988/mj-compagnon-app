@@ -9,10 +9,10 @@
     background-position: right;
 
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     
     &__image-component {
-        width: 25px;
+        width: 20px;
         height: auto;
     }
 
