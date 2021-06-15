@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Navbar from './Navbar';
+import Header from './Header';
 import Footer from './Footer';
 
 const Layout = ({ children }) => (
@@ -9,7 +9,7 @@ const Layout = ({ children }) => (
         <link rel="icon" href="/favicon.ico" />
     </Head>
 
-    <Navbar />
+    <Header />
         {children}
     <Footer />
     </>

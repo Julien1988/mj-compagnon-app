@@ -1,0 +1,29 @@
+//HEADER
+
+.header {
+    background: url("../public/img/dices_custom_pic.jpeg"), linear-gradient(rgba(0, 0, 255, 0.5), rgba(255, 255, 0, 0.5));
+    background-blend-mode: exclusion;
+    background-size: cover;
+    background-position: right;
+}
+
+
+// NAVBAR
+
+.navbar {
+    padding: 70px 10px;
+    //background: #4183c4;;
+    display: flex;
+    justify-content: space-between;
+    
+    
+}
+
+.navbar, .navbar-brand {
+    color: #fff;
+    font-size: 2rem;
+}
+
+.navbar-brand:hover {
+    color: white;
+}
