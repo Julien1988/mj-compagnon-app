@@ -28,6 +28,10 @@
 
 .card {
     margin: auto !important;
+
+    .header {
+        background: inherit;
+    }
 }
 
 .wrapper {
