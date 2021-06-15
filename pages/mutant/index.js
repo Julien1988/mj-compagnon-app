@@ -9,7 +9,7 @@ const Mutant = () => {
     }
     return (
         <div className='container main-container'>
-            <h1>Mutant page</h1>
+            <h1>Mutant</h1>
             {
                 isSubmitting
                     ? <Loader active inline="centered"/>
@@ -17,6 +17,11 @@ const Mutant = () => {
                             <li className="list">
                             <Link href="/mutant/environment">
                                 <a onClick={handleSubmit} className="list-link">Générer un environnement</a>
+                            </Link>
+                            </li>
+                             <li className="list">
+                            <Link href="/mutant/menace">
+                                <a onClick={handleSubmit} className="list-link">Générer une menace de l'arche</a>
                             </Link>
                             </li>
                         </ul>
