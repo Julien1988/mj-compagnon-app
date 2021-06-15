@@ -1,6 +1,9 @@
+@import "color";
+
 .main-container {
     height: 100%;
     padding-top: 2em;
+    background-color: $color2
 }
 
 
@@ -14,8 +17,13 @@
     padding-bottom: 0.5em;
 }
 
+.list-link {
+    color: $color4
+}
+
 .list-link:hover {
-    color: rgb(131, 130, 130);
+    color: #ffff;
+    
 }
 
 .card {
