@@ -11,7 +11,7 @@ const Environment = (data) => {
     }
     useEffect(() => {
         setIsSubmitting(false)
-        console.log('coucou')
+      
     },[data]);
   
     return (
