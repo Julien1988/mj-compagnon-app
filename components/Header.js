@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Image from 'next/Image'
+import Image from 'next/Image';
 const Header = () => (
     <header className="header">
         <nav className="navbar">
