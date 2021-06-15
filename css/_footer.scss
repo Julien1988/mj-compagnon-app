@@ -1,0 +1,16 @@
+footer {
+    background-color: black;
+    height: 9em;
+    .footer-wrapper {
+        display: flex;
+        flex-flow: wrap;
+        justify-content: space-around;
+        height: 100%;
+        padding-top: 2em;
+        padding-bottom: 2em;
+    
+    }
+}
+.footer__text {
+    color: white;
+}

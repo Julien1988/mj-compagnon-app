@@ -1,0 +1,21 @@
+@import "header";
+@import "element";
+@import "footer";
+@import url('https://fonts.googleapis.com/css2?family=Mate+SC&display=swap');
+h1, h2, h3, h4, h5, h6, p, span, a {
+font-family: 'Mate SC', serif;
+    
+}
+h1, h2 {
+    text-align: center;
+}
+
+#__next {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+

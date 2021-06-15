@@ -1,0 +1,43 @@
+@import "color";
+
+.main-container {
+    height: 100%;
+    padding-top: 2em;
+    background-color: $color2
+}
+
+
+.list-container {
+    padding-left: inherit;
+}
+.list {
+    text-align: center;
+    list-style-type: none;
+    font-size: 1.5rem;
+    padding-bottom: 0.5em;
+}
+
+.list-link {
+    color: $color4
+}
+
+.list-link:hover {
+    color: #ffff;
+    
+}
+
+.card {
+    margin: auto !important;
+
+    .header {
+        background: inherit;
+    }
+}
+
+.wrapper {
+    max-width: 1200px;
+    padding: 0 16px;
+    margin: auto;
+
+   
+}
