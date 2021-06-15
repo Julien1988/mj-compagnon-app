@@ -1,5 +1,5 @@
 import Link from 'next/link';
-//import Image from 'next/Image';
+import Image from 'next/Image';
 const Header = () => (
     <header className="header">
         <nav className="navbar">
@@ -8,13 +8,13 @@ const Header = () => (
             </Link>
         </nav>
      
-        {/* <Image
+        <Image
             className="header__image-component"
-            src="./svg/dice-20.svg"
+            src="/svg/dice-20.svg"
             alt="Dice svg"
             width={50}
             height={50}
-        /> */}
+        />
        
     </header>
 
