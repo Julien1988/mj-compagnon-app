@@ -37,7 +37,7 @@ const Combinard = (data) => {
 
                             <ul className="list-container">
                                 <li className="list">
-                                <Link href="/mutant/pnj-generator/Combinard">
+                                <Link href="/mutant/pnj-generator/combinard">
                                     <a onClick={handleSubmit} className="list-link">Générer un autre Combinard</a>
                                 </Link>
                                 </li>
