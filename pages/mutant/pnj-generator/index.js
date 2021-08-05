@@ -18,6 +18,11 @@ const PnjGenerator = () => {
                             <Link href="/mutant/pnj-generator/caid">
                                 <a onClick={handleSubmit} className="list-link">Générer un Caïd</a>
                             </Link>
+                        </li>
+                        <li className="list">
+                            <Link href="/mutant/pnj-generator/chronicle">
+                                <a onClick={handleSubmit} className="list-link">Générer un Chroniqueur</a>
+                            </Link>
                             </li>
                              
                         </ul>
