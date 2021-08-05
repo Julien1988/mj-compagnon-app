@@ -39,6 +39,11 @@ const PnjGenerator = () => {
                                 <a onClick={handleSubmit} className="list-link">Générer un Fracasseur</a>
                             </Link>
                         </li>
+                        <li className="list">
+                            <Link href="/mutant/pnj-generator/dog-trainer">
+                                <a onClick={handleSubmit} className="list-link">Générer un Maître-chien</a>
+                            </Link>
+                        </li>
                              
                         </ul>
             }
