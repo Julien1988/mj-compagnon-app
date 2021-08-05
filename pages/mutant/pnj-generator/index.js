@@ -61,7 +61,6 @@ const PnjGenerator = (data) => {
                                 <a onClick={handleSubmit} className="list-link">Générer un PNJ au hasard</a>
                             </Link>
                         </li>
-                             
                         </ul>
             }
             
