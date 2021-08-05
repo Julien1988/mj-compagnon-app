@@ -34,6 +34,11 @@ const PnjGenerator = () => {
                                 <a onClick={handleSubmit} className="list-link">Générer un Esclave</a>
                             </Link>
                         </li>
+                        <li className="list">
+                            <Link href="/mutant/pnj-generator/smasher">
+                                <a onClick={handleSubmit} className="list-link">Générer un Fracasseur</a>
+                            </Link>
+                        </li>
                              
                         </ul>
             }
