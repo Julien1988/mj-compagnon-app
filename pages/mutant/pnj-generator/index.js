@@ -2,8 +2,10 @@ import Link from 'next/link'
 import {useState} from 'react'
 import { Loader } from 'semantic-ui-react'
 
-const PnjGenerator = () => {
+const PnjGenerator = (data) => {
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [randomPnj, setRandomPnj] = useState(data)
+    console.log(randomPnj["page"]);
     const handleSubmit = () => {
         setIsSubmitting(true);
     }
@@ -54,6 +56,11 @@ const PnjGenerator = () => {
                                 <a onClick={handleSubmit} className="list-link">Générer un Zonard</a>
                             </Link>
                         </li>
+                        <li className="list">
+                            <Link href={`/mutant/pnj-generator/${randomPnj["page"]}`}>
+                                <a onClick={handleSubmit} className="list-link">Générer un PNJ au hasard</a>
+                            </Link>
+                        </li>
                              
                         </ul>
             }
@@ -61,5 +68,67 @@ const PnjGenerator = () => {
       </div>
     )
 }
+
+PnjGenerator.getInitialProps = async () => {
+
+    let randomPnjPage;
+
+    const pnjPages = [
+        'caid',
+        'chronicle',
+        'combinard',
+        'slave',
+        'smasher',
+        'dog-trainer',
+        'handyman',
+        'zonard'
+    ]
+
+    const test = {
+        0: {
+            page: "caid",
+            },
+        1: {
+            page: "chronicle",
+        },
+        2: {
+            page: "combinard",
+        },
+        3: {
+            page: "slave",
+        },
+        4: {
+            page: "smasher",
+        },
+        5: {
+            page: "dog-trainer",
+        },
+        6: {
+            page: "handyman",
+        },
+        7: {
+            page: "zonard",
+            },
+    }
+    
+    const getRandomInt = (max) => {
+        return Math.floor(Math.random() * max);
+      }
+    
+    const randomHandleSubmit = () => {
+        //randomPnjPage = pnjPages[getRandomInt(8)];
+        randomPnjPage = test[getRandomInt(8)];
+    }
+    randomHandleSubmit()
+
+    return randomPnjPage
+    
+}
+
+
+
+
+
+
 
 export default PnjGenerator;
