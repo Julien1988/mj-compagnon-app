@@ -5,6 +5,16 @@ import { CONST_URL } from '../../../constants';
 
 const Town = (data) => {
     const [isSubmitting, setIsSubmitting] = useState(false);
+     const [nothingEstablishment, setNothingEstablishment] = useState(0);
+     const [hostelEstablishment, setHostelEstablishment] = useState(0);
+     const [millEstablishment, setMillEstablishment] = useState(0);
+     const [blackSmithEstablishment, setBlackSmithEstablishment] = useState(0);
+     const [sawmillEstablishment, setSawmillEstablishment] = useState(0);
+     const [counterEstablishment, setCounterEstablishment] = useState(0);
+    const [templeEstablishment, setTempleEstablishment] = useState(0);
+     const [militiaEstablishment, setMilitiaEstablishment] = useState(0);
+     const [tavernEstablishment, setTavernEstablishment] = useState(0);
+     const [stableEstablishment, setStableEstablishment] = useState(0);
     const handleSubmit = () => {
         setIsSubmitting(true);
     }
@@ -12,7 +22,97 @@ const Town = (data) => {
         setIsSubmitting(false)
       
     },[data]);
-    console.log(data[5])
+    //.log(data[6].length)
+    //console.log(data[6])
+
+    let nothingEstablishmentNumber = 0;
+    let hostelEstablishmentNumber = 0;
+    let millEstablishmentNumber = 0;
+    let blackSmithEstablishmentNumber = 0;
+    let sawmillEstablishmentNumber = 0;
+    let counterEstablishmentNumber = 0;
+    let templeEstablishmentNumber = 0;
+    let militiaEstablishmentNumber = 0;
+    let tavernEstablishmentNumber = 0;
+    let stableEstablishmentNumber = 0;
+
+    
+
+    data[6].forEach(element => {
+        console.log(element.village_establishment)
+       
+        switch (element.village_establishment) {
+            case 'Rien':
+                console.log('Rien');
+                nothingEstablishmentNumber++
+                break;
+
+            case 'Auberge':
+                console.log('Auberge');
+                hostelEstablishmentNumber++
+                break;
+            case 'Moulin':
+                console.log('Moulin');
+                millEstablishmentNumber++
+                
+                break;
+            case 'Forgeron':
+                console.log('Forgeron');
+                blackSmithEstablishmentNumber++
+                
+                break;
+            case 'Scierie':
+                console.log('Scierie');
+                sawmillEstablishmentNumber++
+                
+                break;
+            case 'Comptoir':
+                console.log('Comptoir');
+                counterEstablishmentNumber++
+                
+                break;
+            case 'Temple':
+                console.log('Temple');
+                templeEstablishmentNumber++
+                
+                break;
+            case 'Milice':
+                console.log('Milice');
+                militiaEstablishmentNumber++
+                
+                break;
+            case 'Taverne':
+                console.log('Taverne');
+                tavernEstablishmentNumber++
+                
+                break;
+            case 'Écurie':
+                console.log('Écurie');
+                stableEstablishmentNumber++
+                
+                break;
+            default:
+                console.log(`Oups`);
+        }
+    });
+
+    let establishmentsArray = [];
+// CONTINUER ICI TODO !!!!
+    if (nothingEstablishmentNumber > 0) {
+        let nothingEstablishmentObject = {
+            rien: nothingEstablishmentNumber,
+        }
+        establishmentsArray.push(nothingEstablishmentObject)
+    } else if (hostelEstablishmentNumber > 0 ) {
+        let hostelEstablishmentObject = {
+            auberge: hostelEstablishmentNumber,
+        }
+        establishmentsArray.push(hostelEstablishmentObject)
+    }
+
+    console.log('ze test', establishmentsArray)
+   
+    
     return (
         <div className="container main-container">
             <h1>Génération d'un village</h1>
@@ -58,6 +158,16 @@ const Town = (data) => {
                                 <div>
                                     <p>Particularité du village : {data[5].village_particularity}</p>
                                 </div>
+                                <div>
+                                    <p>Etablissements du village : </p>
+                                    <ul>
+                                        {/* {data[6].map((post) =>
+                                            <li >
+                                                {post.village_establishment}
+                                            </li>
+                                        )} */}
+                                    </ul>
+                                </div>
                         
                                 
                             </Card.Content>     
@@ -90,19 +200,29 @@ Town.getInitialProps = async () => {
     // get type of town
     let getTypeOfTown;
 
+    // get village establishment number dice
+    let villageEstablishmentDiceNumber;
+
     const typeOfTown = Math.round(getRandomArbitrary(1, 6));
     console.log(typeOfTown)
     if (typeOfTown < 3) {
        // console.log("Avant-poste");
         getTypeOfTown = 0;
+        // get village establishment number of dice
+        villageEstablishmentDiceNumber = 1;
+        
     } else if (typeOfTown > 2 && typeOfTown < 6) {
        // console.log('Hameau')
         getTypeOfTown = 1;
+        // get village establishment number of dice
+        villageEstablishmentDiceNumber = 3;
     } else {
        // console.log('Village');
         getTypeOfTown = 2;
+        // get village establishment number of dice
+        villageEstablishmentDiceNumber = 5 + Math.round(getRandomArbitrary(1, 6));
     }
-
+  
     // Api call Type Of Town
     const resTown = await fetch(CONST_URL+'/api/forbidden-lands/towns');
     const dataTown = await resTown.json();
@@ -186,9 +306,24 @@ Town.getInitialProps = async () => {
      const villageParticularityDice = Math.round(getRandomArbitrary(0, 18));
      getVillageParticularity = dataVillageParticularity[villageParticularityDice];
  
-     dataArray.push(getVillageParticularity);
-     
+    dataArray.push(getVillageParticularity);
     
+    // get type of village-establishment
+    let getVillageEstablishmentArray = []
+    // USE villageEstablishmentDiceNumber 
+
+    // Api call village Establishment
+    const resVillageEstablishments = await fetch(CONST_URL+'/api/forbidden-lands/village-establishments');
+    const dataVillageEstablishments = await resVillageEstablishments.json();
+   
+    
+    for (let i = 0; i < villageEstablishmentDiceNumber; i++) {
+        const villageEstablishmentDice = Math.round(getRandomArbitrary(0, 9));
+        getVillageEstablishmentArray.push(dataVillageEstablishments[villageEstablishmentDice])
+    }
+    //console.log(getVillageEstablishmentArray);
+    dataArray.push(getVillageEstablishmentArray);
+
 
     return dataArray
 
