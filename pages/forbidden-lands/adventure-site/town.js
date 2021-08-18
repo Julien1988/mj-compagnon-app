@@ -12,7 +12,7 @@ const Town = (data) => {
         setIsSubmitting(false)
       
     },[data]);
-    console.log(data[4])
+    console.log(data[5])
     return (
         <div className="container main-container">
             <h1>Génération d'un village</h1>
@@ -54,6 +54,9 @@ const Town = (data) => {
                                 </div>
                                 <div>
                                     <p>Célèbre pour : {data[4].famous_for}</p>
+                                </div>
+                                <div>
+                                    <p>Particularité du village : {data[5].village_particularity}</p>
                                 </div>
                         
                                 
@@ -172,6 +175,19 @@ Town.getInitialProps = async () => {
     getVillageReputation = dataVillageReputations[villageReputationDice];
 
     dataArray.push(getVillageReputation);
+
+     // get type of village reputation
+     let getVillageParticularity;
+
+     // Api call Village Particularity
+     const resVillageParticularity = await fetch(CONST_URL+'/api/forbidden-lands/village-particularity');
+     const dataVillageParticularity = await resVillageParticularity.json();
+     // console.log(dataVillageParticularity)
+     const villageParticularityDice = Math.round(getRandomArbitrary(0, 18));
+     getVillageParticularity = dataVillageParticularity[villageParticularityDice];
+ 
+     dataArray.push(getVillageParticularity);
+     
     
 
     return dataArray
