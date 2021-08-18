@@ -12,7 +12,7 @@ const Town = (data) => {
         setIsSubmitting(false)
       
     },[data]);
-    console.log(data[1])
+    console.log(data[2])
     return (
         <div className="container main-container">
             <h1>Génération d'un village</h1>
@@ -33,9 +33,25 @@ const Town = (data) => {
                                 </div>
                                 <div>
                                     <p>Période de construction: {data[1].construction_period} ({data[1].age})</p>
-                                    
                                 </div>
-                                      
+                                <div>
+                                    <p>Chef du village :</p>
+                                    {
+                                        data[2].chef_type == "Pas de chef"
+                                            ? <p>Pas de chef</p>
+                                            :  <ul>
+                                                    <li>
+                                                        <p>Spécificité: {data[2].peculiarity} </p>
+                                                        </li>
+                                                        <li>
+                                                        <p>Type de chef: {data[2].chef_type} </p>
+                                                    </li>
+                                                </ul>
+                                    }
+                                   
+                                    
+                                    
+                                </div>   
                         
                                 
                             </Card.Content>     
@@ -90,7 +106,6 @@ Town.getInitialProps = async () => {
     // get age of town
     let getAgeOfTown;
     const ageOfTownDice = Math.round(getRandomArbitrary(11, 66));
-    console.log(ageOfTownDice)
 
     // Api call Age Of Town
     const resAgeOfTown = await fetch(CONST_URL+'/api/forbidden-lands/age-of-the-village');
@@ -106,10 +121,30 @@ Town.getInitialProps = async () => {
     }
     dataArray.push(dataAgeOfTown[getAgeOfTown]);
     
+    // get type of chief pecularity
+    let getTypeOfChiefPeculiarity;
+    // get type of chief type
+    let getTypeOfChiefType;
+
+    // get type of chief array
+    let getTypeOfChiefObject;
+
+    const typeOfChiefFirstDice = Math.round(getRandomArbitrary(0, 11));
+    const typeOfChiefSecondDice = Math.round(getRandomArbitrary(0, 11));
     
-    // let num = 15;
-    // let n = num.toString();
-    // console.log(n)
+    // Api call Type Of Chief
+    const resTypeOfChief = await fetch(CONST_URL+'/api/forbidden-lands/chief-of-the-village');
+    const dataTypeOfChief = await resTypeOfChief.json();
+    //console.log(dataTypeOfChief)
+    getTypeOfChiefPeculiarity = dataTypeOfChief[typeOfChiefFirstDice].peculiarity;
+    getTypeOfChiefType = dataTypeOfChief[typeOfChiefSecondDice].chef_type;
+    getTypeOfChiefObject = {
+        peculiarity: getTypeOfChiefPeculiarity,
+        chef_type: getTypeOfChiefType
+    };
+    //console.log(getTypeOfChiefObject)
+    
+    dataArray.push(getTypeOfChiefObject);
     
 
     return dataArray
