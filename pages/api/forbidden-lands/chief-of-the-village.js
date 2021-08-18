@@ -14,7 +14,7 @@ export default (req, res) => {
             chef_type: "Ancien"
         },
         3: {
-            peculiarity: "Sage",
+            peculiarity: "Cupide",
             chef_type: "Maire"
         },
         4: {
