@@ -14,7 +14,7 @@ const Town = (data) => {
       
     },[data]);
  
-    //console.log(data)
+    console.log(data)
 
     
     return (
@@ -212,8 +212,7 @@ Town.getInitialProps = async () => {
  
     dataArray.push(getVillageParticularity);
     
-    // get type of village-establishment
-    let getVillageEstablishmentArray = []
+   
     // USE villageEstablishmentDiceNumber 
 
     // Api call village Establishment
@@ -247,16 +246,50 @@ Town.getInitialProps = async () => {
         newAllEstablishmentListObject[getValue] = numberOfEstablisment;
 
    });
-   // console.log(newAllEstablishmentListObject)
+    //console.log(newAllEstablishmentListObject)
+    let getAllObjectkeys = Object.keys(newAllEstablishmentListObject);
 
     // get Random Establishment 
+    let getAllVillageEstablishmentGetWithDiceArray = [];
+    let indexOfForEach = 0;
     for (let i = 0; i < villageEstablishmentDiceNumber; i++) {
         const villageEstablishmentDice = Math.round(getRandomArbitrary(0, 9));
-        getVillageEstablishmentArray.push(dataVillageEstablishments[villageEstablishmentDice])
+        let getAllVillageEstablishmentGetWithDice = dataVillageEstablishments[villageEstablishmentDice]['village_establishment']
+        //console.log(getAllVillageEstablishmentGetWithDice)
+       
+        getAllVillageEstablishmentGetWithDiceArray.push(getAllVillageEstablishmentGetWithDice);
+        //console.log(getAllVillageEstablishmentGetWithDiceArray)
+        
+        getAllObjectkeys.forEach(element => {
+            //console.log(getAllVillageEstablishmentGetWithDiceArray[indexOfForEach], element, indexOfForEach)
+            // attention  undefined
+            
+
+
+           // Récupérer la clé pour comparaison
+            //console.log(element)
+
+            if (getAllVillageEstablishmentGetWithDiceArray[indexOfForEach] == element) {
+                //console.log('ok')
+                // Modification du nombre d'élément dans le tableau
+                newAllEstablishmentListObject[element] = newAllEstablishmentListObject[element]+1
+                
+            } else {
+                //console.log('oups')
+            }
+            // Prendre l'élement trouvé
+           
+
+
+
+            
+        });
+        indexOfForEach++
+        
     }
-    console.log(getVillageEstablishmentArray);
-  
-    
+   
+    //console.log(newAllEstablishmentListObject)
+    dataArray.push(newAllEstablishmentListObject);
 
 
     return dataArray
