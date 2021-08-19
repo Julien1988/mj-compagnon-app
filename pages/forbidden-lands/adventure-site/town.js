@@ -14,7 +14,7 @@ const Town = (data) => {
       
     },[data]);
  
-    console.log(data)
+    console.log(data[6])
 
     
     return (

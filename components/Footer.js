@@ -1,11 +1,11 @@
 
 
 const Footer = () => (
-    <footer class='footer'>
-        <div class='footer-wrapper'>
-            <p class='footer__text'>Dev by Julien Broens</p>
-            <a href="mailto:julienbroens@gmail.com" class='footer__link email'>julienbroens@gmail.com</a>
-            <p class='footer__text'>Follow me on twitter : @DrV0dka </p>
+    <footer className='footer'>
+        <div className='footer-wrapper'>
+            <p className='footer__text'>Dev by Julien Broens</p>
+            <a href="mailto:julienbroens@gmail.com" className='footer__link email'>julienbroens@gmail.com</a>
+            <p className='footer__text'>Follow me on twitter : @DrV0dka </p>
         </div>
 
     </footer>
