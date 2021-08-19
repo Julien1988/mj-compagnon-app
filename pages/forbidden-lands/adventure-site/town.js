@@ -5,16 +5,7 @@ import { CONST_URL } from '../../../constants';
 
 const Town = (data) => {
     const [isSubmitting, setIsSubmitting] = useState(false);
-     const [nothingEstablishment, setNothingEstablishment] = useState(0);
-     const [hostelEstablishment, setHostelEstablishment] = useState(0);
-     const [millEstablishment, setMillEstablishment] = useState(0);
-     const [blackSmithEstablishment, setBlackSmithEstablishment] = useState(0);
-     const [sawmillEstablishment, setSawmillEstablishment] = useState(0);
-     const [counterEstablishment, setCounterEstablishment] = useState(0);
-    const [templeEstablishment, setTempleEstablishment] = useState(0);
-     const [militiaEstablishment, setMilitiaEstablishment] = useState(0);
-     const [tavernEstablishment, setTavernEstablishment] = useState(0);
-     const [stableEstablishment, setStableEstablishment] = useState(0);
+  
     const handleSubmit = () => {
         setIsSubmitting(true);
     }
@@ -22,96 +13,9 @@ const Town = (data) => {
         setIsSubmitting(false)
       
     },[data]);
-    //.log(data[6].length)
-    //console.log(data[6])
+ 
+    //console.log(data)
 
-    let nothingEstablishmentNumber = 0;
-    let hostelEstablishmentNumber = 0;
-    let millEstablishmentNumber = 0;
-    let blackSmithEstablishmentNumber = 0;
-    let sawmillEstablishmentNumber = 0;
-    let counterEstablishmentNumber = 0;
-    let templeEstablishmentNumber = 0;
-    let militiaEstablishmentNumber = 0;
-    let tavernEstablishmentNumber = 0;
-    let stableEstablishmentNumber = 0;
-
-    
-
-    data[6].forEach(element => {
-        console.log(element.village_establishment)
-       
-        switch (element.village_establishment) {
-            case 'Rien':
-                console.log('Rien');
-                nothingEstablishmentNumber++
-                break;
-
-            case 'Auberge':
-                console.log('Auberge');
-                hostelEstablishmentNumber++
-                break;
-            case 'Moulin':
-                console.log('Moulin');
-                millEstablishmentNumber++
-                
-                break;
-            case 'Forgeron':
-                console.log('Forgeron');
-                blackSmithEstablishmentNumber++
-                
-                break;
-            case 'Scierie':
-                console.log('Scierie');
-                sawmillEstablishmentNumber++
-                
-                break;
-            case 'Comptoir':
-                console.log('Comptoir');
-                counterEstablishmentNumber++
-                
-                break;
-            case 'Temple':
-                console.log('Temple');
-                templeEstablishmentNumber++
-                
-                break;
-            case 'Milice':
-                console.log('Milice');
-                militiaEstablishmentNumber++
-                
-                break;
-            case 'Taverne':
-                console.log('Taverne');
-                tavernEstablishmentNumber++
-                
-                break;
-            case 'Écurie':
-                console.log('Écurie');
-                stableEstablishmentNumber++
-                
-                break;
-            default:
-                console.log(`Oups`);
-        }
-    });
-
-    let establishmentsArray = [];
-// CONTINUER ICI TODO !!!!
-    if (nothingEstablishmentNumber > 0) {
-        let nothingEstablishmentObject = {
-            rien: nothingEstablishmentNumber,
-        }
-        establishmentsArray.push(nothingEstablishmentObject)
-    } else if (hostelEstablishmentNumber > 0 ) {
-        let hostelEstablishmentObject = {
-            auberge: hostelEstablishmentNumber,
-        }
-        establishmentsArray.push(hostelEstablishmentObject)
-    }
-
-    console.log('ze test', establishmentsArray)
-   
     
     return (
         <div className="container main-container">
@@ -204,7 +108,7 @@ Town.getInitialProps = async () => {
     let villageEstablishmentDiceNumber;
 
     const typeOfTown = Math.round(getRandomArbitrary(1, 6));
-    console.log(typeOfTown)
+    //console.log(typeOfTown)
     if (typeOfTown < 3) {
        // console.log("Avant-poste");
         getTypeOfTown = 0;
@@ -315,14 +219,44 @@ Town.getInitialProps = async () => {
     // Api call village Establishment
     const resVillageEstablishments = await fetch(CONST_URL+'/api/forbidden-lands/village-establishments');
     const dataVillageEstablishments = await resVillageEstablishments.json();
-   
+
+    // get All Establishment in a Array
+    let allEstablishmentList = []
+
+    // get Object Length fir the for loop
+    let allEstablishmentListNumber = Object.keys(dataVillageEstablishments).length
+
+    for (let i = 0; i < allEstablishmentListNumber; i++) {
+        allEstablishmentList.push(dataVillageEstablishments[i]);
+    }
     
+  
+  
+    //console.log(allEstablishmentList)
+
+    // Creat new Object with NameOfEstablisment and Number 0
+    let newAllEstablishmentListObject = { }
+    // ex :  newAllEstablishmentListObject.MyNewKey3 = "value3";
+
+    allEstablishmentList.forEach(element => {
+        //console.log(Object.keys(element))
+        // get Key
+        let getKey = Object.keys(element)
+        let getValue = element[getKey]
+        let numberOfEstablisment = 0
+        newAllEstablishmentListObject[getValue] = numberOfEstablisment;
+
+   });
+   // console.log(newAllEstablishmentListObject)
+
+    // get Random Establishment 
     for (let i = 0; i < villageEstablishmentDiceNumber; i++) {
         const villageEstablishmentDice = Math.round(getRandomArbitrary(0, 9));
         getVillageEstablishmentArray.push(dataVillageEstablishments[villageEstablishmentDice])
     }
-    //console.log(getVillageEstablishmentArray);
-    dataArray.push(getVillageEstablishmentArray);
+    console.log(getVillageEstablishmentArray);
+  
+    
 
 
     return dataArray

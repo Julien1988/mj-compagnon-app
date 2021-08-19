@@ -38,7 +38,7 @@ export default (req, res) => {
 
         },
         9: {
-            village_establishment: "Écurie",
+            village_establishment: "Ecurie",
         
         },
         
