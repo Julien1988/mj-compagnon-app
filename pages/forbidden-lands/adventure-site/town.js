@@ -228,9 +228,6 @@ Town.getInitialProps = async () => {
     for (let i = 0; i < allEstablishmentListNumber; i++) {
         allEstablishmentList.push(dataVillageEstablishments[i]);
     }
-    
-  
-  
     //console.log(allEstablishmentList)
 
     // Creat new Object with NameOfEstablisment and Number 0
@@ -263,26 +260,14 @@ Town.getInitialProps = async () => {
         getAllObjectkeys.forEach(element => {
             //console.log(getAllVillageEstablishmentGetWithDiceArray[indexOfForEach], element, indexOfForEach)
             // attention  undefined
-            
-
-
            // Récupérer la clé pour comparaison
-            //console.log(element)
 
             if (getAllVillageEstablishmentGetWithDiceArray[indexOfForEach] == element) {
                 //console.log('ok')
                 // Modification du nombre d'élément dans le tableau
                 newAllEstablishmentListObject[element] = newAllEstablishmentListObject[element]+1
                 
-            } else {
-                //console.log('oups')
             }
-            // Prendre l'élement trouvé
-           
-
-
-
-            
         });
         indexOfForEach++
         
