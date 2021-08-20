@@ -37,37 +37,38 @@ const Town = (data) => {
                                     
                             </Card.Header> 
                                 <div>
-                                   <p>Habitants : {data[0].peoples}</p>
+                                   <p className='little-margin-bottom'>Habitants : {data[0].peoples}</p>
                                 </div>
                                 <div>
-                                    <p>Période de construction: {data[1].construction_period} ({data[1].age})</p>
+                                    <p className='little-margin-bottom'>Période de construction: {data[1].construction_period} ({data[1].age})</p>
                                 </div>
                                 <div>
-                                    <p>Chef du village :</p>
+                                <div>
+                                    <p className='little-margin-bottom'>Problème du village : {data[3].probem}</p>
+                                </div>
+                                <div>
+                                    <p className='little-margin-bottom'>Célèbre pour : {data[4].famous_for}</p>
+                                </div>
+                                <div>
+                                    <p className='little-margin-bottom'>Particularité du village : {data[5].village_particularity}</p>
+                                </div>
+                                <div className="little-margin-bottom">
+                                    <p className='little-margin-bottom bold'>Chef du village :</p>
                                     {
                                         data[2].chef_type == "Pas de chef"
                                             ? <p>Pas de chef</p>
-                                            :  <ul>
-                                                    <li>
+                                            :  <ul className='list-container'>
+                                                    <li className='list'>
                                                         <p>Spécificité: {data[2].peculiarity} </p>
                                                         </li>
-                                                        <li>
+                                                        <li className='list'>
                                                         <p>Type de chef: {data[2].chef_type} </p>
                                                     </li>
                                                 </ul>
                                     }
                                 </div>
-                                <div>
-                                    <p>Problème du village : {data[3].probem}</p>
-                                </div>
-                                <div>
-                                    <p>Célèbre pour : {data[4].famous_for}</p>
-                                </div>
-                                <div>
-                                    <p>Particularité du village : {data[5].village_particularity}</p>
-                                </div>
-                                <div>
-                                    <p>Etablissements du village : </p>
+                                
+                                    <p className='little-margin-bottom bold'>Etablissements du village : </p>
                                     <table>
                                         <tbody>
                                             {Object.keys(data[6]).map((post) =>
