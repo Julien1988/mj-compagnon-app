@@ -12,9 +12,13 @@ const Town = (data) => {
     useEffect(() => {
         setIsSubmitting(false)
       
-    },[data]);
+    }, [data]);
+    // key
+    let postId = 0;
  
     console.log(data[6])
+    // Give Key
+    //console.log(Object.keys(data[6]))
 
     
     return (
@@ -64,13 +68,20 @@ const Town = (data) => {
                                 </div>
                                 <div>
                                     <p>Etablissements du village : </p>
-                                    <ul>
-                                        {/* {data[6].map((post) =>
-                                            <li >
-                                                {post.village_establishment}
-                                            </li>
-                                        )} */}
-                                    </ul>
+                                    <table>
+                                        <tbody>
+                                            {Object.keys(data[6]).map((post) =>
+                                                data[6][post] == 0 || post == 'Rien'
+                                                 ?  <tr className="DisplayNone"></tr>
+                                                 :  <tr>
+                                                        <td key={postId+1}>{post}</td>
+                                                        <td key={postId+100}> {data[6][post]}</td>
+                                                    </tr>
+                                        )} 
+                                    
+                                        </tbody>
+                                        
+                                    </table>
                                 </div>
                         
                                 
