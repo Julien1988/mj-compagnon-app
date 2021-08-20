@@ -9,7 +9,7 @@ const AdventureSite = () => {
     }
     return (
         <div className='container main-container'>
-            <h1>Forbidden Lands</h1>
+            <h1>Générateur d'auberge</h1>
             {
                 isSubmitting
                     ? <Loader active inline="centered"/>
@@ -17,11 +17,6 @@ const AdventureSite = () => {
                             <li className="list">
                             <Link href="/forbidden-lands/adventure-site/town">
                                 <a onClick={handleSubmit} className="list-link">Générer un village</a>
-                            </Link>
-                        </li>
-                        <li className="list">
-                            <Link href="/forbidden-lands/adventure-site/inn">
-                                <a onClick={handleSubmit} className="list-link">Générer une auberge</a>
                             </Link>
                             </li>
                             
