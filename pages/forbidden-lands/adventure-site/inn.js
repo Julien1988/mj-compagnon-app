@@ -15,8 +15,8 @@ const AdventureSite = () => {
                     ? <Loader active inline="centered"/>
                     :   <ul className="list-container">
                             <li className="list">
-                            <Link href="/forbidden-lands/adventure-site/town">
-                                <a onClick={handleSubmit} className="list-link">Générer un village</a>
+                            <Link href="/forbidden-lands/adventure-site/inn">
+                                <a onClick={handleSubmit} className="list-link">Générer une autre auberge</a>
                             </Link>
                             </li>
                             
