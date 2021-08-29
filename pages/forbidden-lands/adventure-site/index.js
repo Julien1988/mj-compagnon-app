@@ -19,11 +19,11 @@ const AdventureSite = () => {
                                 <a onClick={handleSubmit} className="list-link">Générer un village</a>
                             </Link>
                         </li>
-                        <li className="list">
+                        {/* <li className="list">
                             <Link href="/forbidden-lands/adventure-site/inn">
                                 <a onClick={handleSubmit} className="list-link">Générer une auberge</a>
                             </Link>
-                            </li>
+                            </li> */}
                             
                         </ul>
             }
