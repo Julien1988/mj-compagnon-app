@@ -40,17 +40,21 @@ const Inn = (data) => {
                         </Card>
                         
                         <ul className="list-container">
-                        <li className="list">
-                             <Link href="/forbidden-lands/adventure-site/inn">
-                                 <a onClick={handleSubmit} className="list-link">Générer une autre auberge</a>
-                             </Link>
-                             </li>
-                        <li className="list">
-                        <Link href="/forbidden-lands/adventure-site/town">
-                                <a onClick={handleSubmit} className="list-link">Générer un  village</a>
+                            <li className="list">
+                                <Link href="/forbidden-lands/adventure-site/inn">
+                                    <a onClick={handleSubmit} className="list-link">Générer une autre auberge</a>
                                 </Link>
-                               
-                        </li>
+                                </li>
+                            <li className="list">
+                            <Link href="/forbidden-lands/adventure-site/town">
+                                    <a onClick={handleSubmit} className="list-link">Générer un  village</a>
+                                    </Link> 
+                            </li>
+                            <li className="list">
+                            <Link href="/forbidden-lands">
+                                <a className="list-link">Retour à la page Forbidden Lands</a>
+                            </Link>
+                            </li>
                         </ul>
                         
                 </div>

@@ -36,7 +36,22 @@ const Menace = (data) => {
                                 <Link href="/mutant/menace">
                                     <a onClick={handleSubmit} className="list-link">Générer une autre menace</a>
                                 </Link>
-                                </li>
+                            </li>
+                            <li className="list">
+                            <Link href="/mutant/environment">
+                            <a onClick={handleSubmit} className="list-link">Générer un environnement</a>
+                                </Link>
+                            </li>
+                            <li className="list">
+                            <Link href="/mutant/pnj-generator">
+                                <a onClick={handleSubmit} className="list-link">Générer un PNJ</a>
+                            </Link>
+                            </li>
+                            <li className="list">
+                            <Link href="/mutant">
+                                <a className="list-link">Retour à la page Mutant</a>
+                            </Link>
+                            </li>
                             </ul>
                         </div>
           }

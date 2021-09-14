@@ -61,6 +61,21 @@ const PnjGenerator = (data) => {
                                 <a onClick={handleSubmit} className="list-link">Générer un PNJ au hasard</a>
                             </Link>
                         </li>
+                        <li className="list">
+                                <Link href="/mutant/menace">
+                                    <a onClick={handleSubmit} className="list-link">Générer une menace</a>
+                                </Link>
+                            </li>
+                            <li className="list">
+                            <Link href="/mutant/environment">
+                            <a onClick={handleSubmit} className="list-link">Générer un environnement</a>
+                                </Link>
+                        </li>
+                        <li className="list">
+                            <Link href="/mutant">
+                                <a className="list-link">Retour à la page Mutant</a>
+                            </Link>
+                            </li>
                         </ul>
             }
             
