@@ -16,46 +16,49 @@ const Inn = (data) => {
     return (
         <div className='container main-container'>
             <h1>Générateur d'auberge</h1>
+           
             {
                 isSubmitting
                     ? <Loader active inline="centered"/>
                     :    <div className="main-container__content">
 
             
-                    <Card>
-                        <Card.Content>
-                            <Card.Header>
-                                <p>{data[0]}</p>
+                        <Card>
+                            <Card.Content>
+                                <Card.Header>
+                                    <p>{data[0]}</p>
+                                        
+                                </Card.Header> 
+                                    <div>
+                                        <p className='little-margin-bottom'>Particularité : {data[0]}</p>
+                                        <p className='little-margin-bottom'>Spécialité : {data[1]}</p>
+                                        <p className='little-margin-bottom'>Client remarquable : {data[2]}</p>
+                                    </div>
                                     
-                            </Card.Header> 
-                                <div>
-                                    <p className='little-margin-bottom'>Particularité : {data[0]}</p>
-                                    <p className='little-margin-bottom'>Spécialité : {data[1]}</p>
-                                    <p className='little-margin-bottom'>Client remarquable : {data[2]}</p>
-                                </div>
-                                
-                        
-                                
-                            </Card.Content>     
-                        </Card>
-                        
-                        <ul className="list-container">
-                            <li className="list">
-                                <Link href="/forbidden-lands/adventure-site/inn">
-                                    <a onClick={handleSubmit} className="list-link">Générer une autre auberge</a>
+                            
+                                    
+                                </Card.Content>     
+                            </Card>
+                            
+                           
+                            : <ul className="list-container">
+                            
+                                <li className="list">
+                                    <Link href="/forbidden-lands/adventure-site/inn">
+                                        <a onClick={handleSubmit} className="list-link">Générer une autre auberge</a>
+                                    </Link>
+                                    </li>
+                                <li className="list">
+                                <Link href="/forbidden-lands/adventure-site/town">
+                                        <a onClick={handleSubmit} className="list-link">Générer un  village</a>
+                                        </Link> 
+                                </li>
+                                <li className="list">
+                                <Link href="/forbidden-lands">
+                                    <a className="list-link">Retour à la page Forbidden Lands</a>
                                 </Link>
                                 </li>
-                            <li className="list">
-                            <Link href="/forbidden-lands/adventure-site/town">
-                                    <a onClick={handleSubmit} className="list-link">Générer un  village</a>
-                                    </Link> 
-                            </li>
-                            <li className="list">
-                            <Link href="/forbidden-lands">
-                                <a className="list-link">Retour à la page Forbidden Lands</a>
-                            </Link>
-                            </li>
-                        </ul>
+                            </ul>
                         
                 </div>
             }
