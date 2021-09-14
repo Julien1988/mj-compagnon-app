@@ -30,9 +30,9 @@ const Inn = (data) => {
                                         
                                 </Card.Header> 
                                     <div>
-                                        <p className='little-margin-bottom'>Particularité : {data[0]}</p>
-                                        <p className='little-margin-bottom'>Spécialité : {data[1]}</p>
-                                        <p className='little-margin-bottom'>Client remarquable : {data[2]}</p>
+                                        <p className='little-margin-bottom'>Particularité : {data[1]}</p>
+                                        <p className='little-margin-bottom'>Spécialité : {data[2]}</p>
+                                        <p className='little-margin-bottom'>Client remarquable : {data[3]}</p>
                                     </div>
                                     
                             
