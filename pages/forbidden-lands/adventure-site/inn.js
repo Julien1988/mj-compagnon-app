@@ -43,8 +43,9 @@ Inn.getInitialProps = async () => {
 
     // get Inn name
     let innName;
-    let getRandomDiceOne
-    let getRandomDiceTwo
+    let getRandomDiceOne;
+    let getRandomDiceTwo;
+    let getRandomDiceThree;
     const dubbleFirtName = Math.round(getRandomArbitrary(1, 2));
     let dubbleFirstNameBool;
         (dubbleFirtName == 1)
@@ -59,8 +60,9 @@ Inn.getInitialProps = async () => {
                     getRandomDiceTwo = Math.round(getRandomArbitrary(0, 35));
                     if (getRandomDiceOne == getRandomDiceTwo) {
                         innName = dataInNames[getRandomDiceOne].first_word + ' ' + dataInNames[getRandomDiceTwo].second_word;
+                    } else {
+                        innName = (dataInNames[getRandomDiceOne].first_word + ' et ' + dataInNames[getRandomDiceTwo].first_word);
                     }
-                    innName = (dataInNames[getRandomDiceOne].first_word + ' et ' + dataInNames[getRandomDiceTwo].first_word);
                   break;
                
                 default:
@@ -69,15 +71,29 @@ Inn.getInitialProps = async () => {
                     getRandomDiceOne = Math.round(getRandomArbitrary(0, 35));
                     getRandomDiceTwo = Math.round(getRandomArbitrary(0, 35));
                     innName = dataInNames[getRandomDiceOne].first_word + ' ' + dataInNames[getRandomDiceTwo].second_word;
-                    
             }
+    dataArray.push(innName);
     
-    console.log(innName);
-    
-    
-    //console.log(dataInNames[0].first_word)
+    // get Inn peculiarity
+    let peculiarity;
+    // get Inn speciality
+    let speciality;
+    // get In remarkable_customer
+    let remarkableCustomer
+    // Api inn Property
+    const resInnProperty = await fetch(CONST_URL+'/api/forbidden-lands/inn-of-the-village');
+    const dataInnProperty = await resInnProperty.json();
+    //console.log(dataInnProperty[10])
+    getRandomDiceOne = Math.round(getRandomArbitrary(0, 13));
+    getRandomDiceTwo = Math.round(getRandomArbitrary(0, 13));
+    getRandomDiceThree = Math.round(getRandomArbitrary(0, 13));
 
-
+    peculiarity = dataInnProperty[getRandomDiceOne].peculiarity;
+    speciality = dataInnProperty[getRandomDiceTwo].speciality;
+    remarkableCustomer = dataInnProperty[getRandomDiceThree].remarkable_customer;
+   
+    dataArray.push(peculiarity, speciality, remarkableCustomer);
+    console.log(dataArray)
   
     return dataArray
 
