@@ -94,7 +94,13 @@ const Town = (data) => {
                         <Link href="/forbidden-lands/adventure-site/town">
                                 <a onClick={handleSubmit} className="list-link">Générer un autre village</a>
                             </Link>
-                        </li>
+                            
+                            </li>
+                            <li className="list">
+                             <Link href="/forbidden-lands/adventure-site/inn">
+                                 <a onClick={handleSubmit} className="list-link">Générer une auberge</a>
+                             </Link>
+                             </li>
                         </ul>
                         
                 </div>

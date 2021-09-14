@@ -1,31 +1,68 @@
 import Link from 'next/link'
-import {useState} from 'react'
-import { Loader } from 'semantic-ui-react'
+import {useState, useEffect} from 'react'
+import { Loader, Card } from 'semantic-ui-react'
 import { CONST_URL } from '../../../constants';
 
-const Inn = () => {
+const Inn = (data) => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const handleSubmit = () => {
         setIsSubmitting(true);
     }
+    useEffect(() => {
+        setIsSubmitting(false)
+      
+    }, [data]);
+    console.log(data)
     return (
         <div className='container main-container'>
             <h1>Générateur d'auberge</h1>
             {
                 isSubmitting
                     ? <Loader active inline="centered"/>
-                    :   <ul className="list-container">
-                            <li className="list">
-                            <Link href="/forbidden-lands/adventure-site/inn">
-                                <a onClick={handleSubmit} className="list-link">Générer une autre auberge</a>
-                            </Link>
-                            </li>
-                            
-                        </ul>
-            }
+                    :    <div className="main-container__content">
+
             
-      </div>
+                    <Card>
+                        <Card.Content>
+                            <Card.Header>
+                                <p>{data[0]}</p>
+                                    
+                            </Card.Header> 
+                                <div>
+                                    <p className='little-margin-bottom'>Particularité : {data[0]}</p>
+                                    <p className='little-margin-bottom'>Spécialité : {data[1]}</p>
+                                    <p className='little-margin-bottom'>Client remarquable : {data[2]}</p>
+                                </div>
+                                
+                        
+                                
+                            </Card.Content>     
+                        </Card>
+                        
+                        <ul className="list-container">
+                        <li className="list">
+                             <Link href="/forbidden-lands/adventure-site/inn">
+                                 <a onClick={handleSubmit} className="list-link">Générer une autre auberge</a>
+                             </Link>
+                             </li>
+                        <li className="list">
+                        <Link href="/forbidden-lands/adventure-site/town">
+                                <a onClick={handleSubmit} className="list-link">Générer un  village</a>
+                                </Link>
+                               
+                        </li>
+                        </ul>
+                        
+                </div>
+            }
+         
+            
+        </div>
     )
+   
+        
+         
+    
 }
 
 Inn.getInitialProps = async () => {
@@ -93,7 +130,7 @@ Inn.getInitialProps = async () => {
     remarkableCustomer = dataInnProperty[getRandomDiceThree].remarkable_customer;
    
     dataArray.push(peculiarity, speciality, remarkableCustomer);
-    console.log(dataArray)
+    //console.log(dataArray)
   
     return dataArray
 
