@@ -29,7 +29,15 @@ const Play = (data) => {
     }
     let getFirstDice;
     let getSecondDice;
+
+    // ici
     const dicesSubmit = () => {
+        if (changeColorCssBool == false) {
+            setChangeColorCssBool(true)
+
+        } else {
+            setChangeColorCssBool(false)
+        }
         if (isDontPanic != "DON'T PANIC !") {
             setCounterOn(true)
             getFirstDice = Math.round(getRandomArbitrary(1, 6))
@@ -38,6 +46,7 @@ const Play = (data) => {
             setSecondDice(getSecondDice)
             setDiceResult(getFirstDice + getSecondDice);
         }
+
        
     }
 
@@ -203,10 +212,10 @@ const Play = (data) => {
                                         {
                                                         isCounterIsZero
                                                             ?   <div className="button-center">
-                                                                <Button onClick={dicesSubmitEndGame} className="little-margin-bottom button-color-3">Continue</Button>
+                                                                <Button onClick={dicesSubmitEndGame} className={cssContinueButtonColor}>Continue</Button>
                                                                 </div>
                                                             :   <div className="button-center">
-                                                                <Button onClick={dicesSubmit} className='little-margin-bottom button-color-3'>{diceResult}</Button>
+                                                                <Button onClick={dicesSubmit} className={cssContinueButtonColor}>{diceResult}</Button>
                                                                 </div>
                                                     }
                                         </Card.Header>
