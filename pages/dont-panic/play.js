@@ -35,6 +35,10 @@ const Play = (data) => {
        
     }
 
+    const changeScene = () => {
+        setPlayCounter(playCounter - 2)
+    }
+
     useEffect(() => {
         
         if (diceResult != "Lancer les dés" && isDontPanic == false) {
@@ -148,8 +152,9 @@ const Play = (data) => {
                                             <p className='little-margin-bottom'>Casting : Chacun.e décrit rapidement son personnage : nom, occupation, personnalité, quel.le acteurice joue son rôle… et tout ce qui vous semblera pertinent pour que chacun.e puisse se l’imaginer pendant la partie.</p>
                                         </div>
                                         <Card.Header>
-                                        <div>
-                                                <Button onClick={dicesSubmit} className='little-margin-bottom'>{diceResult}</Button>
+                                        <div className="button-center">
+                                                        <Button onClick={dicesSubmit} className='little-margin-bottom button-color-3'>{diceResult}</Button>
+                                                        <Button onClick={changeScene} className='little-margin-bottom button-color-2'>Passer à la scène suivante</Button>
                                         </div>
                                         </Card.Header>
                                         {isDiceSubmitting
