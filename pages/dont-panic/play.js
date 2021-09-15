@@ -6,7 +6,7 @@ import { CONST_URL } from './../../constants';
 const Play = (data) => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [diceResult, setDiceResult] = useState("Lancer les dés")
-    const [isDiceSubmitting, setIsDiceSubmitting] = useState(false)
+    const [isDiceSubmitting, setIsDiceSubmitting] = useState(true)
     // counter default 1O
     const [playCounter, setPlayCounter] = useState(10);
     const [counterOn, setCounterOn] = useState(true)
@@ -96,7 +96,7 @@ const Play = (data) => {
         setIsSubmitting(true);
         setPlayCounter(10)
         setDiceResult("Lancer les dés")
-
+       
     }
 
  
@@ -123,9 +123,8 @@ const Play = (data) => {
         
     }
 
-    // TODO COLOR CONTINUE CSS CLASS
+    
     useEffect(() => {
-        console.log("use Effect here")
         if (changeColorCssBool == true) {
             setCssContinueButtonColor("little-margin-bottom button-color-5")
         } else {
