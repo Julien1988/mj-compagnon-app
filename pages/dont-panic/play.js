@@ -17,6 +17,7 @@ const Play = (data) => {
     // dont panic end game
     const [isDontPanic, setIsDontPanic] = useState(false)
 
+    
      // utils fonct
      const getRandomArbitrary = (min, max) => {
         return Math.random() * (max - min) + min;
@@ -36,7 +37,15 @@ const Play = (data) => {
     }
 
     const changeScene = () => {
-        setPlayCounter(playCounter - 2)
+        if (playCounter == 1) {
+            setPlayCounter(0)
+        } else {
+            setPlayCounter(playCounter - 2)
+            if (playCounter <= 0) {
+                setPlayCounter(0);
+            }
+        }
+        
     }
 
     useEffect(() => {
@@ -54,6 +63,9 @@ const Play = (data) => {
                 if (counterOn == true) {
                     setCounterOn(false)
                     setPlayCounter(playCounter - 1)
+                    if (playCounter >= 0) {
+                        setPlayCounter(0);
+                    }
 
                 }
                
@@ -62,21 +74,36 @@ const Play = (data) => {
             }
         }
         
-
-        if (playCounter < 1) {
-            setGameIsOn(false);
-            setDiceResult("Lancer les dés")
-            setCounterOn(false)
-            setIsDontPanic(true)
-            console.log(gameIsOn)
-        }
-
-        if (isDontPanic == true && firstDice != secondDice) {
+        if (playCounter <= 0 ) {
+            console.log("plus petit que ZERO")
             setDiceResult("Au suivant")
-        } else if (isDontPanic == true && firstDice == secondDice) {
-            setDiceResult("DON'T PANIC !")
-        }
-        setIsDiceSubmitting(true)
+            console.log(firstDice, secondDice)
+            let testDiceOne = firstDice + 2
+            let testDiceTwo = secondDice
+            if (testDiceOne == testDiceTwo) {
+                console.log("same")
+            }
+        } 
+
+        // TEST
+        // if (playCounter <= 0) {
+        //     setGameIsOn(false);
+        //     setDiceResult("Lancer les dés")
+        //     setCounterOn(false)
+        //     console.log(firstDice, secondDice)
+        //     if (firstDice == secondDice && playCounter <= 0) {
+        //       setIsDontPanic(true)
+        //         console.log(firstDice, secondDice)
+
+        //     }
+            
+        // }
+        // if (isDontPanic == true && firstDice != secondDice) {
+        //     setDiceResult("Au suivant")
+        // } else if (isDontPanic == true && firstDice == secondDice) {
+        //     setDiceResult("DON'T PANIC !")
+        // }
+        // setIsDiceSubmitting(true)
     }, [dicesSubmit])
     
     const handleSubmit = () => {
