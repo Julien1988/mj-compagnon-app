@@ -37,7 +37,13 @@ const Play = (data) => {
 
     //reboot game
     const newGame = () => {
+        if (playCounter <= 0) {
+            document.location.reload();
+        }
+        setCounterOn(true)
         setIsNewGame(true);
+        setIsCounterIsZero(false)
+        setDiceResult("Lancer les dés")
         setPlayCounter(10)
         setFirstDiceLauche(true)
         setRulesContent("")
@@ -46,6 +52,7 @@ const Play = (data) => {
 
   
     const dicesSubmit = () => {
+        setIsNewGame(false)
         setFirstDiceLauche(false)
         if (changeColorCssBool == false) {
             setChangeColorCssBool(true)
@@ -83,7 +90,7 @@ const Play = (data) => {
 
        
         
-        if (diceResult != "Lancer les dés" && isDontPanic == false) {
+        if (diceResult != "Lancer les dés" && isDontPanic == false && isNewGame == false) {
             if (diceResult < 7 && firstDice != secondDice) {
                 setRulesContent("lea joueureuse raconte comment la situation dérape.")
             
