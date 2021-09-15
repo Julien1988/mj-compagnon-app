@@ -80,9 +80,12 @@ const Play = (data) => {
     }, [dicesSubmit])
     
     const handleSubmit = () => {
+        setIsDontPanic(false)
+        setGameIsOn(true);
         setIsSubmitting(true);
         setPlayCounter(10)
         setDiceResult("Lancer les dés")
+
     }
     useEffect(() => {
         setIsSubmitting(false)
