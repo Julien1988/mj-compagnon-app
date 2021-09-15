@@ -18,6 +18,11 @@ const Index = () => {
             <a className="list-link">Forbidden Lands</a>
           </Link>
         </li>
+        <li className="list">
+          <Link href="/dont-panic">
+            <a className="list-link">Don't Panic</a>
+          </Link>
+        </li>
         {/* <li className="list">
           <Link href="/alien">
             <a className="list-link">Alien</a>
