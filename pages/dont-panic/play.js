@@ -21,7 +21,11 @@ const Play = (data) => {
     // changle button color continue
     const [cssContinueButtonColor, setCssContinueButtonColor] = useState("little-margin-bottom button-color-3")
     const [changeColorCssBool, setChangeColorCssBool] = useState(false)
+    const [isNewGame, setIsNewGame] = useState(false)
 
+    // Premier lancer de dés (disparition de début du film)
+
+    const [firstDiceLauche, setFirstDiceLauche] = useState(true)
     
     // utils fonct
     const getRandomArbitrary = (min, max) => {
@@ -30,8 +34,19 @@ const Play = (data) => {
     let getFirstDice;
     let getSecondDice;
 
-    // ici
+
+    //reboot game
+    const newGame = () => {
+        setIsNewGame(true);
+        setPlayCounter(10)
+        setFirstDiceLauche(true)
+        setRulesContent("")
+        console.log(isNewGame, "ici")
+    }
+
+  
     const dicesSubmit = () => {
+        setFirstDiceLauche(false)
         if (changeColorCssBool == false) {
             setChangeColorCssBool(true)
 
@@ -62,7 +77,11 @@ const Play = (data) => {
         
     }
 
+ 
+
     useEffect(() => {
+
+       
         
         if (diceResult != "Lancer les dés" && isDontPanic == false) {
             if (diceResult < 7 && firstDice != secondDice) {
@@ -85,6 +104,7 @@ const Play = (data) => {
                 
             }
         }
+
        
 
 
@@ -98,6 +118,8 @@ const Play = (data) => {
 
        
     }, [dicesSubmit])
+
+    
     
     const handleSubmit = () => {
         setIsDontPanic(false)
@@ -105,6 +127,7 @@ const Play = (data) => {
         setIsSubmitting(true);
         setPlayCounter(10)
         setDiceResult("Lancer les dés")
+        setFirstDiceLauche(true)
        
     }
 
@@ -205,9 +228,36 @@ const Play = (data) => {
                                                 
                                         </Card.Header>
                                         
-                                        <div className='little-margin-bottom'>
+                                            <div className='little-margin-bottom'>
                                             <p className='little-margin-bottom'>Casting : Chacun.e décrit rapidement son personnage : nom, occupation, personnalité, quel.le acteurice joue son rôle… et tout ce qui vous semblera pertinent pour que chacun.e puisse se l’imaginer pendant la partie.</p>
-                                        </div>
+                                            </div>
+                                            
+                                                {
+                                                    firstDiceLauche
+                                                        ?  
+                                                            <Card.Header>
+                                                            <div>
+                                                            <p>Début du film</p>
+                                                        
+                                                            </div>
+                                                                
+                                                            </Card.Header>
+                                                            
+                                                           
+                                                        : <div></div>
+                                                }
+                                                 {
+                                                    firstDiceLauche
+                                                        ?  
+                                                            <div className='little-margin-bottom'>
+                                                            <p className='little-margin-bottom'>Un.e joueureuse commence par cadrer une scène avec une péripétie. Un.e autre raconte comment son personnage intervient et lance 2d6.</p>
+                                                            </div>
+                                                            
+                                                           
+                                                        : <div></div>
+                                                }
+                                               
+                                                
                                         <Card.Header>
                                         {
                                                         isCounterIsZero
@@ -262,7 +312,7 @@ const Play = (data) => {
                             </li>
                             <li className="list">
                             <Link href="/dont-panic/play">
-                                <a onClick={handleSubmit} className="list-link">Nouvelle partie</a>
+                                <a onClick={newGame} className="list-link">Nouvelle partie</a>
                             </Link>
                             </li>
                             <li className="list">
