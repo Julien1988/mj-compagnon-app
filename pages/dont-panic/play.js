@@ -126,7 +126,7 @@ const Play = (data) => {
     
     useEffect(() => {
         if (changeColorCssBool == true) {
-            setCssContinueButtonColor("little-margin-bottom button-color-5")
+            setCssContinueButtonColor("little-margin-bottom button-color-2")
         } else {
             setCssContinueButtonColor("little-margin-bottom button-color-3")
         }
