@@ -8,14 +8,17 @@ const Play = (data) => {
     const [diceResult, setDiceResult] = useState("Lancer les dés")
     const [isDiceSubmitting, setIsDiceSubmitting] = useState(false)
     // counter default 1O
-    const [playCounter, setPlayCounter] = useState(1);
+    const [playCounter, setPlayCounter] = useState(10);
     const [counterOn, setCounterOn] = useState(true)
     const [gameIsOn, setGameIsOn] = useState(true)
     const [rulesContent, setRulesContent] = useState('');
-    const [firstDice, setFirstDice] = useState();
-    const [secondDice, setSecondDice] = useState();
+    const [firstDice, setFirstDice] = useState(1);
+    const [secondDice, setSecondDice] = useState(2);
     // dont panic end game
     const [isDontPanic, setIsDontPanic] = useState(false)
+
+    // Test
+    const [isCounterIsZero, setIsCounterIsZero] = useState(false)
 
     
      // utils fonct
@@ -25,7 +28,7 @@ const Play = (data) => {
     let getFirstDice;
     let getSecondDice;
     const dicesSubmit = () => {
-        if (diceResult != "DON'T PANIC !") {
+        if (isDontPanic != "DON'T PANIC !") {
             setCounterOn(true)
             getFirstDice = Math.round(getRandomArbitrary(1, 6))
             setFirstDice(getFirstDice)
@@ -63,7 +66,7 @@ const Play = (data) => {
                 if (counterOn == true) {
                     setCounterOn(false)
                     setPlayCounter(playCounter - 1)
-                    if (playCounter >= 0) {
+                    if (playCounter <= 0) {
                         setPlayCounter(0);
                     }
 
@@ -73,37 +76,19 @@ const Play = (data) => {
                 
             }
         }
-        
-        if (playCounter <= 0 ) {
+        console.log(firstDice, secondDice)
+
+
+        if (playCounter <= 0 && isCounterIsZero == false) {
             console.log("plus petit que ZERO")
-            setDiceResult("Au suivant")
+           
             console.log(firstDice, secondDice)
-            let testDiceOne = firstDice + 2
-            let testDiceTwo = secondDice
-            if (testDiceOne == testDiceTwo) {
-                console.log("same")
-            }
+            setIsCounterIsZero(true)
+            setGameIsOn(false)
+           
         } 
 
-        // TEST
-        // if (playCounter <= 0) {
-        //     setGameIsOn(false);
-        //     setDiceResult("Lancer les dés")
-        //     setCounterOn(false)
-        //     console.log(firstDice, secondDice)
-        //     if (firstDice == secondDice && playCounter <= 0) {
-        //       setIsDontPanic(true)
-        //         console.log(firstDice, secondDice)
-
-        //     }
-            
-        // }
-        // if (isDontPanic == true && firstDice != secondDice) {
-        //     setDiceResult("Au suivant")
-        // } else if (isDontPanic == true && firstDice == secondDice) {
-        //     setDiceResult("DON'T PANIC !")
-        // }
-        // setIsDiceSubmitting(true)
+       
     }, [dicesSubmit])
     
     const handleSubmit = () => {
@@ -113,6 +98,18 @@ const Play = (data) => {
         setPlayCounter(10)
         setDiceResult("Lancer les dés")
 
+    }
+
+    const dicesSubmitEndGame = () => {
+       let getFirstDiceEndGame = Math.round(getRandomArbitrary(1, 6))
+        
+        let getSecondDiceEndGame = Math.round(getRandomArbitrary(1, 6))
+        
+        if (getFirstDiceEndGame == getSecondDiceEndGame) {
+           // setGameIsOn(false)
+            setIsDontPanic(true)
+        }
+        
     }
     useEffect(() => {
         setIsSubmitting(false)
@@ -182,10 +179,15 @@ const Play = (data) => {
                                             <p className='little-margin-bottom'>Casting : Chacun.e décrit rapidement son personnage : nom, occupation, personnalité, quel.le acteurice joue son rôle… et tout ce qui vous semblera pertinent pour que chacun.e puisse se l’imaginer pendant la partie.</p>
                                         </div>
                                         <Card.Header>
-                                        <div className="button-center">
-                                                        <Button onClick={dicesSubmit} className='little-margin-bottom button-color-3'>{diceResult}</Button>
-                                                        
-                                        </div>
+                                        {
+                                                        isCounterIsZero
+                                                            ?   <div className="button-center">
+                                                                <Button onClick={dicesSubmitEndGame} className='little-margin-bottom button-color-3'>Continue</Button>
+                                                                </div>
+                                                            :   <div className="button-center">
+                                                                <Button onClick={dicesSubmit} className='little-margin-bottom button-color-3'>{diceResult}</Button>
+                                                                </div>
+                                                    }
                                         </Card.Header>
                                         {isDiceSubmitting
                                         ?  <div className='little-margin-bottom'>
@@ -214,9 +216,9 @@ const Play = (data) => {
                                             <p>Quand il n’y a plus de jeton au centre de la table : c’est le point dramatiquement culminant du film ! Tou.tes en même temps, les joueureuses racontent comment tout va trop mal ! On essaie de s’écouter et de rebondir les un.es sur les autres, mais il n’y a pas d’ordre : c’est le chaos, la fin du monde, le petit orteil sur le coin du pied de chaise ! Tout en racontant comment tout part en quenouille, chacun.e jette frénétiquement ses 2d6 ! Lea premier.e à obtenir un double 6 crie :</p>
                                             </div>
                                             <Card.Header>
-                                                <div>
-                                                <Button onClick={dicesSubmit} className='little-margin-bottom'>{diceResult}</Button>
-                                                </div>
+                                            <div className="button-center">
+                                                <Button onClick={dicesSubmitEndGame} className='little-margin-bottom button-color-3'>Continue</Button>
+                                            </div>
                                             
                                             </Card.Header>
                                     </Card.Content>
