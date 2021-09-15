@@ -314,9 +314,7 @@ const Play = (data) => {
                         }
                        
                         <ul className="list-container">
-                            <li className="list">
-                             <p className="list list-color">Ce jeu est une création originale de Jentey Guillaume</p>   
-                            </li>
+                        
                             <li className="list">
                             <Link href="/dont-panic/play">
                                 <a onClick={newGame} className="list-link">Nouvelle partie</a>
@@ -324,8 +322,13 @@ const Play = (data) => {
                             </li>
                             <li className="list">
                                 <Link href="https://guillaumejentey.itch.io/dont-panic-englishfrancais">
-                                    <a onClick={handleSubmit} className="list-link">Voir la page officielle du jeu</a>
+                                    <a className="list-link">Voir la page officielle du jeu</a>
                                 </Link>
+                            </li>
+                            <li className="list">
+                                <Link href="https://guillaumejentey.itch.io">
+                                    <a className="list-link">Ce jeu est une création originale de Jentey Guillaume</a>
+                                </Link>   
                             </li>
                            
                         </ul>

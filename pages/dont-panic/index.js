@@ -16,17 +16,21 @@ const DontPanic = () => {
                     : <div className="main-container__content">
                         
                         <ul className="list-container">
-                            <li className="list">
-                             <p className="list list-color">Ce jeu est une création originale de Jentey Guillaume</p>   
-                            </li>
+                          
                             <li className="list">
                             <Link href="/dont-panic/play">
                                 <a onClick={handleSubmit} className="list-link">Jouer au jeu</a>
                             </Link>
                             </li>
                             <li className="list">
+                               
+                               <Link href="https://guillaumejentey.itch.io">
+                                   <a className="list-link">Ce jeu est une création originale de Jentey Guillaume</a>
+                               </Link>   
+                           </li>
+                            <li className="list">
                                 <Link href="https://guillaumejentey.itch.io/dont-panic-englishfrancais">
-                                    <a onClick={handleSubmit} className="list-link">Voir la page officiel du jeu</a>
+                                    <a className="list-link">La page officielle des règles du jeu.</a>
                                 </Link>
                             </li>
                            
