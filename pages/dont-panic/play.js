@@ -12,6 +12,7 @@ const Play = (data) => {
         setIsSubmitting(false)
       
     }, [data]);
+    console.log(data)
     return (
         <div className='container main-container'>
             <h1>Don't Panic</h1>
@@ -22,11 +23,11 @@ const Play = (data) => {
                          <Card>
                             <Card.Content>
                                 <Card.Header>
-                                    <p>C'est partit !!!</p>
+                                    <p>Scénario</p>
                                         
                                 </Card.Header> 
                                     <div>
-                                        <p className='little-margin-bottom'>toto</p>
+                                    <p className='little-margin-bottom'>{data[0]} - {data[1] }</p>
                                     </div>
                                     
                             
@@ -62,13 +63,34 @@ Play.getInitialProps = async () => {
     }
     // data array to return
     let dataArray = [];
-
+    
 
     // Api scenarios 
     const resScenarios = await fetch(CONST_URL+'/api/dont-panic/scenarios');
     const dataScenarios = await resScenarios.json();
 
+    // get number of scenarios
+    const scenariosNumber = Object.keys(dataScenarios).length - 1
+    // take a random scenario
+    const getRandomScenarioDice = Math.round(getRandomArbitrary(0, scenariosNumber));
+   
+    const getRandomScenario = dataScenarios[getRandomScenarioDice];
+
+    // get scenario theme
+    const scenarioTheme = getRandomScenario.theme;
+
+    // get number of events 
+    const getEventsNumber = getRandomScenario.event.length - 1
+    // take a random event
+    const getRandomEventDice = Math.round(getRandomArbitrary(0, getEventsNumber));
+    // get event
+    const getRandomEvent = getRandomScenario.event[getRandomEventDice]
     
+    
+
+    dataArray.push(scenarioTheme, getRandomEvent)
+
+
 
   
     return dataArray
