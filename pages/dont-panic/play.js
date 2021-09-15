@@ -8,7 +8,7 @@ const Play = (data) => {
     const [diceResult, setDiceResult] = useState("Lancer les dés")
     const [isDiceSubmitting, setIsDiceSubmitting] = useState(false)
     // counter default 1O
-    const [playCounter, setPlayCounter] = useState(10);
+    const [playCounter, setPlayCounter] = useState(1);
     const [counterOn, setCounterOn] = useState(true)
     const [gameIsOn, setGameIsOn] = useState(true)
     const [rulesContent, setRulesContent] = useState('');
@@ -157,7 +157,7 @@ const Play = (data) => {
                                         <Card.Header>
                                         <div className="button-center">
                                                         <Button onClick={dicesSubmit} className='little-margin-bottom button-color-3'>{diceResult}</Button>
-                                                        <Button onClick={changeScene} className='little-margin-bottom button-color-2'>Passer à la scène suivante</Button>
+                                                        
                                         </div>
                                         </Card.Header>
                                         {isDiceSubmitting
@@ -169,7 +169,11 @@ const Play = (data) => {
                                         :   <div className='little-margin-bottom'>
                                             
                                             </div>
-                                        }   
+                                                }
+                                                <div className="button-center">
+                                                       
+                                                        <Button onClick={changeScene} className='little-margin-bottom button-color-2'>Passer à la scène suivante</Button>
+                                        </div>
                                         </Card.Content>     
                                 
                                     : <Card.Content>
@@ -204,7 +208,7 @@ const Play = (data) => {
                             </li>
                             <li className="list">
                                 <Link href="https://guillaumejentey.itch.io/dont-panic-englishfrancais">
-                                    <a onClick={handleSubmit} className="list-link">Voir la page officiel du jeu</a>
+                                    <a onClick={handleSubmit} className="list-link">Voir la page officielle du jeu</a>
                                 </Link>
                             </li>
                            
