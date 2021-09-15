@@ -16,15 +16,17 @@ const Play = (data) => {
     const [secondDice, setSecondDice] = useState(2);
     // dont panic end game
     const [isDontPanic, setIsDontPanic] = useState(false)
-
-    // Test
+    // Climax start 
     const [isCounterIsZero, setIsCounterIsZero] = useState(false)
+    // changle button color continue
+    const [cssContinueButtonColor, setCssContinueButtonColor] = useState("little-margin-bottom button-color-3")
+    const [changeColorCssBool, setChangeColorCssBool] = useState(false)
 
     
-     // utils fonct
-     const getRandomArbitrary = (min, max) => {
+    // utils fonct
+    const getRandomArbitrary = (min, max) => {
         return Math.random() * (max - min) + min;
-     }
+    }
     let getFirstDice;
     let getSecondDice;
     const dicesSubmit = () => {
@@ -35,7 +37,7 @@ const Play = (data) => {
             getSecondDice = Math.round(getRandomArbitrary(1, 6))
             setSecondDice(getSecondDice)
             setDiceResult(getFirstDice + getSecondDice);
-        } 
+        }
        
     }
 
@@ -61,7 +63,7 @@ const Play = (data) => {
                 setRulesContent("lea joueureuse raconte comment la situation est à l’avantage de son personnage.")
                
             } else {
-                setDiceResult("DOUBLE !!!" + firstDice + " " + secondDice)
+                setDiceResult("DOUBLE !!! (" + firstDice + "" + secondDice + ")")
                 setRulesContent("iel doit aussi clore la scène (qu’elle se finisse bien ou non)")
                 if (counterOn == true) {
                     setCounterOn(false)
@@ -71,22 +73,19 @@ const Play = (data) => {
                     }
 
                 }
-               
-
                 
             }
         }
-        console.log(firstDice, secondDice)
+       
 
 
         if (playCounter <= 0 && isCounterIsZero == false) {
-            console.log("plus petit que ZERO")
-           
-            console.log(firstDice, secondDice)
             setIsCounterIsZero(true)
             setGameIsOn(false)
-           
-        } 
+    
+        }
+        
+        
 
        
     }, [dicesSubmit])
@@ -100,17 +99,40 @@ const Play = (data) => {
 
     }
 
+ 
+
     const dicesSubmitEndGame = () => {
-       let getFirstDiceEndGame = Math.round(getRandomArbitrary(1, 6))
+        // Changer colour ici
+       // changeColorCssBool, setChangeColorCssBool
+        console.log(changeColorCssBool)
+        if (changeColorCssBool == false) {
+            setChangeColorCssBool(true)
+
+        } else {
+            setChangeColorCssBool(false)
+        }
+       console.log(changeColorCssBool)
+        let getFirstDiceEndGame = Math.round(getRandomArbitrary(1, 6))
         
         let getSecondDiceEndGame = Math.round(getRandomArbitrary(1, 6))
         
         if (getFirstDiceEndGame == getSecondDiceEndGame) {
-           // setGameIsOn(false)
+            // setGameIsOn(false)
             setIsDontPanic(true)
         }
         
     }
+
+    // TODO COLOR CONTINUE CSS CLASS
+    useEffect(() => {
+        console.log("use Effect here")
+        if (changeColorCssBool == true) {
+            setCssContinueButtonColor("little-margin-bottom button-color-5")
+        } else {
+            setCssContinueButtonColor("little-margin-bottom button-color-3")
+        }
+    }, [changeColorCssBool])
+
     useEffect(() => {
         setIsSubmitting(false)
       
@@ -182,7 +204,7 @@ const Play = (data) => {
                                         {
                                                         isCounterIsZero
                                                             ?   <div className="button-center">
-                                                                <Button onClick={dicesSubmitEndGame} className='little-margin-bottom button-color-3'>Continue</Button>
+                                                                <Button onClick={dicesSubmitEndGame} className="little-margin-bottom button-color-3">Continue</Button>
                                                                 </div>
                                                             :   <div className="button-center">
                                                                 <Button onClick={dicesSubmit} className='little-margin-bottom button-color-3'>{diceResult}</Button>
@@ -217,7 +239,7 @@ const Play = (data) => {
                                             </div>
                                             <Card.Header>
                                             <div className="button-center">
-                                                <Button onClick={dicesSubmitEndGame} className='little-margin-bottom button-color-3'>Continue</Button>
+                                                <Button onClick={dicesSubmitEndGame} className={cssContinueButtonColor}>Continue</Button>
                                             </div>
                                             
                                             </Card.Header>
