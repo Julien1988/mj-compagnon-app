@@ -3,7 +3,7 @@ import {useState, useEffect} from 'react'
 import { Card, Loader } from 'semantic-ui-react'
 import {CONST_URL} from '../../constants';
 
-const NigtlyEntertainment = (data) => {
+const HowIsTheRoad = (data) => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const handleSubmit = () => {
         setIsSubmitting(true);
@@ -14,27 +14,27 @@ const NigtlyEntertainment = (data) => {
     },[data]);
     return (
         <div className='container main-container'>
-          <h1>Animations nocturnes au camping</h1>
+          <h1>Comment est la route ?</h1>
           {
                isSubmitting
                     ? <Loader active inline="centered"/>
                     :    <div className="main-container__content">
-                         
+                          
                             <Card>
                                 {
                                     <Card.Content>
                                         <Card.Header>
-                                        <p>Animation nocture</p>
+                                        <p>La route est :</p>
                                         </Card.Header>
-                                    <p>{ data.nightly_entertainment }</p>
+                                    <p>{ data.how_is_the_road }</p>
                                     </Card.Content>
                                 }
                             </Card>
 
                             <ul className="list-container">
                                 <li className="list">
-                                    <Link href="/mork-borg/nigtly-entertainment">
-                                        <a onClick={handleSubmit} className="list-link">Générer une autre animations nocturnes au camping</a>
+                                    <Link href="/mork-borg/how-is-the-road">
+                                        <a onClick={handleSubmit} className="list-link">Générer une autre route</a>
                                     </Link>
                             </li>
                             <li className="list">
@@ -50,25 +50,15 @@ const NigtlyEntertainment = (data) => {
     )
 }
 
-NigtlyEntertainment.getInitialProps = async () => {
-    //get random randomNigtlyEntertainment
-    let getProbabilityDice = Math.floor(Math.random() * 12);
+HowIsTheRoad.getInitialProps = async () => {
+    //get random randomHowIsTheRoad
+    let getProbabilityDice = Math.floor(Math.random() * 8);
 
-    let randomNigtlyEntertainmentDice;
-    if (getProbabilityDice <= 5) {
-        randomNigtlyEntertainmentDice = 0;
-    } else {
-        randomNigtlyEntertainmentDice = Math.floor(Math.random() * 7) + 1;
-    }
-    
-    
-    const resNigtlyEntertainment = await fetch(CONST_URL+'/api/mork-borg/nightly-entertainment-at-the-campsite');
-    const dataNigtlyEntertainment = await resNigtlyEntertainment.json();
-
-    let randomNigtlyEntertainment = dataNigtlyEntertainment[randomNigtlyEntertainmentDice];
-
-    return randomNigtlyEntertainment;
+    const resHowIsTheRoad = await fetch(CONST_URL+'/api/mork-borg/how-is-the-road');
+    const dataHowIsTheRoad = await resHowIsTheRoad.json();
+    let randomHowIsTheRoad = dataHowIsTheRoad[getProbabilityDice];
+    return randomHowIsTheRoad;
 
 }
 
-export default NigtlyEntertainment;
+export default HowIsTheRoad;

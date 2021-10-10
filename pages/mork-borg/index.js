@@ -15,14 +15,29 @@ const MorkBorg = () => {
                     ? <Loader active inline="centered"/>
                     :   <ul className="list-container">
                             <li className="list">
-                            <Link href="/mork-borg/hunting-accident">
-                                <a onClick={handleSubmit} className="list-link">Accidents de chasse</a>
-                            </Link>
+                                <Link href="/mork-borg/hunting-accident">
+                                    <a onClick={handleSubmit} className="list-link">Accidents de chasse</a>
+                                </Link>
                             </li>
                             <li className="list">
-                            <Link href="/mork-borg/nigtly-entertainment">
-                                <a onClick={handleSubmit} className="list-link">Animations nocturnes au camping</a>
-                            </Link>
+                                <Link href="/mork-borg/nigtly-entertainment">
+                                    <a onClick={handleSubmit} className="list-link">Animations nocturnes au camping</a>
+                                </Link>
+                            </li>
+                            <li className="list">
+                                <Link href="/mork-borg/how-is-the-road">
+                                    <a onClick={handleSubmit} className="list-link">Comment est la route ?</a>
+                                </Link>
+                        </li>
+                        <li className="list">
+                                <Link href="/mork-borg/in-the-belly-of-the-beast">
+                                    <a onClick={handleSubmit} className="list-link">Dans le ventre de la bête</a>
+                                </Link>
+                        </li>
+                        <li className="list">
+                                <Link href="/mork-borg/meeting-in-wilderness">
+                                    <a onClick={handleSubmit} className="list-link">Rencontre en terre sauvage</a>
+                                </Link>
                             </li>
                         </ul>
             }
