@@ -19,6 +19,11 @@ const Index = () => {
           </Link>
         </li>
         <li className="list">
+          <Link href="/mork-borg">
+            <a className="list-link">Mörk Börg</a>
+          </Link>
+        </li>
+        <li className="list">
           <Link href="/dont-panic">
             <a className="list-link">Don't Panic</a>
           </Link>
