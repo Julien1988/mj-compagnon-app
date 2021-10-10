@@ -9,7 +9,7 @@ const MorkBorg = () => {
     }
     return (
         <div className='container main-container'>
-            <h1>Mörg Börg</h1>
+            <h1>Mörk Börg</h1>
             {
                 isSubmitting
                     ? <Loader active inline="centered"/>
@@ -41,7 +41,7 @@ const MorkBorg = () => {
                         </li>
                         <li className="list">
                                 <Link href="/mork-borg/the-village-is">
-                                    <a onClick={handleSubmit} className="list-link">Le village est</a>
+                                    <a onClick={handleSubmit} className="list-link">Générer un village</a>
                                 </Link>
                         </li>
                         <li className="list">
