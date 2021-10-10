@@ -3,7 +3,7 @@ import {useState, useEffect} from 'react'
 import { Card, Loader } from 'semantic-ui-react'
 import {CONST_URL} from '../../constants';
 
-const HuntingAccident = (data) => {
+const NigtlyEntertainment = (data) => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const handleSubmit = () => {
         setIsSubmitting(true);
@@ -14,7 +14,7 @@ const HuntingAccident = (data) => {
     },[data]);
     return (
         <div className='container main-container'>
-          <h1>HuntingAccident</h1>
+          <h1>Animations nocturnes au camping</h1>
           {
                isSubmitting
                     ? <Loader active inline="centered"/>
@@ -24,17 +24,17 @@ const HuntingAccident = (data) => {
                                 {
                                     <Card.Content>
                                         <Card.Header>
-                                        <p>Accident de chasse</p>
+                                        <p>Animation nocture</p>
                                         </Card.Header>
-                                        <p>{ data.hunting_accident }</p>
+                                    <p>{ data.nightly_entertainment }</p>
                                     </Card.Content>
                                 }
                             </Card>
 
                             <ul className="list-container">
                                 <li className="list">
-                                    <Link href="/mork-borg/hunting-accident">
-                                        <a onClick={handleSubmit} className="list-link">Générer une autre accident de chasse</a>
+                                    <Link href="/mork-borg/nigtly-entertainment">
+                                        <a onClick={handleSubmit} className="list-link">Générer une autre animations nocturnes au camping</a>
                                     </Link>
                             </li>
                             <li className="list">
@@ -50,16 +50,25 @@ const HuntingAccident = (data) => {
     )
 }
 
-HuntingAccident.getInitialProps = async () => {
-    //get random randomHuntingAccident
-   
-    let randomHuntingAccidentDice = Math.floor(Math.random() * 10);
-    const resHuntingAccidents = await fetch(CONST_URL+'/api/mork-borg/hunting-accidents');
-    const dataHuntingAccidents = await resHuntingAccidents.json();
-    let randomHuntingAccident = dataHuntingAccidents[randomHuntingAccidentDice];
+NigtlyEntertainment.getInitialProps = async () => {
+    //get random randomNigtlyEntertainment
+    let getProbabilityDice = Math.floor(Math.random() * 12);
 
-    return randomHuntingAccident;
+    let randomNigtlyEntertainmentDice;
+    if (getProbabilityDice <= 5) {
+        randomNigtlyEntertainmentDice = 0;
+    } else {
+        randomNigtlyEntertainmentDice = Math.floor(Math.random() * 7) + 1;
+    }
+    
+    
+    const resNigtlyEntertainment = await fetch(CONST_URL+'/api/mork-borg/nightly-entertainment-at-the-campsite');
+    const dataNigtlyEntertainment = await resNigtlyEntertainment.json();
+
+    let randomNigtlyEntertainment = dataNigtlyEntertainment[randomNigtlyEntertainmentDice];
+
+    return randomNigtlyEntertainment;
 
 }
 
-export default HuntingAccident;
+export default NigtlyEntertainment;

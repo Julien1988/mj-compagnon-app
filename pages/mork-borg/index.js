@@ -2,7 +2,7 @@ import Link from 'next/link'
 import {useState} from 'react'
 import { Loader } from 'semantic-ui-react'
 
-const ForbiddenLands = () => {
+const MorkBorg = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const handleSubmit = () => {
         setIsSubmitting(true);
@@ -19,7 +19,11 @@ const ForbiddenLands = () => {
                                 <a onClick={handleSubmit} className="list-link">Accidents de chasse</a>
                             </Link>
                             </li>
-                            
+                            <li className="list">
+                            <Link href="/mork-borg/nigtly-entertainment">
+                                <a onClick={handleSubmit} className="list-link">Animations nocturnes au camping</a>
+                            </Link>
+                            </li>
                         </ul>
             }
             
@@ -27,4 +31,4 @@ const ForbiddenLands = () => {
     )
 }
 
-export default ForbiddenLands;
+export default MorkBorg;
