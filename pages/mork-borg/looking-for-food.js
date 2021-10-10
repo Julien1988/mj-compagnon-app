@@ -3,7 +3,7 @@ import {useState, useEffect} from 'react'
 import { Card, Loader } from 'semantic-ui-react'
 import {CONST_URL} from '../../constants';
 
-const HowIsTheRoad = (data) => {
+const LookingForFood = (data) => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const handleSubmit = () => {
         setIsSubmitting(true);
@@ -14,7 +14,7 @@ const HowIsTheRoad = (data) => {
     },[data]);
     return (
         <div className='container main-container'>
-          <h1>Comment est la route ?</h1>
+          <h1>Passer une journée à chercher de la nourriture</h1>
           {
                isSubmitting
                     ? <Loader active inline="centered"/>
@@ -23,17 +23,14 @@ const HowIsTheRoad = (data) => {
                             <Card>
                                 {
                                     <Card.Content>
-                                        <Card.Header>
-                                        <p>La route est :</p>
-                                        </Card.Header>
-                                    <p>{ data.how_is_the_road }</p>
+                                    <p>{ data.looking_for_food }</p>
                                     </Card.Content>
                                 }
                             </Card>
 
                             <ul className="list-container">
                                 <li className="list">
-                                    <Link href="/mork-borg/how-is-the-road">
+                                    <Link href="/mork-borg/looking-for-food">
                                         <a onClick={handleSubmit} className="list-link">Générer un autre résultat</a>
                                     </Link>
                             </li>
@@ -50,15 +47,15 @@ const HowIsTheRoad = (data) => {
     )
 }
 
-HowIsTheRoad.getInitialProps = async () => {
-    //get random randomHowIsTheRoad
-    let getProbabilityDice = Math.floor(Math.random() * 8);
+LookingForFood.getInitialProps = async () => {
+    //get random randomLookingForFood
+    let getProbabilityDice = Math.floor(Math.random() * 6);
 
-    const resHowIsTheRoad = await fetch(CONST_URL+'/api/mork-borg/how-is-the-road');
-    const dataHowIsTheRoad = await resHowIsTheRoad.json();
-    let randomHowIsTheRoad = dataHowIsTheRoad[getProbabilityDice];
-    return randomHowIsTheRoad;
+    const resLookingForFood = await fetch(CONST_URL+'/api/mork-borg/looking-for-food');
+    const dataLookingForFood = await resLookingForFood.json();
+    let randomLookingForFood = dataLookingForFood[getProbabilityDice];
+    return randomLookingForFood;
 
 }
 
-export default HowIsTheRoad;
+export default LookingForFood;

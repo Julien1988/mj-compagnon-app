@@ -31,7 +31,7 @@ const TheVillageIs = (data) => {
                             <ul className="list-container">
                                 <li className="list">
                                     <Link href="/mork-borg/the-village-is">
-                                        <a onClick={handleSubmit} className="list-link">Générer un autre village</a>
+                                    <a onClick={handleSubmit} className="list-link">Générer un autre résultat</a>
                                     </Link>
                             </li>
                             <li className="list">

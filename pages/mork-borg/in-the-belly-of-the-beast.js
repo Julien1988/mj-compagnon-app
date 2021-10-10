@@ -26,7 +26,8 @@ const InTheBelly = (data) => {
                                         <Card.Header>
                                         <p>vous trouvez...</p>
                                         </Card.Header>
-                                    <p>{ data.in_the_belly_of_the_beast }</p>
+                                    <p>{data.in_the_belly_of_the_beast}</p>
+                                    <p>* Évidemment, certaines bêtes sont trop petites ou bizarres pour cette table.</p>
                                     </Card.Content>
                                 }
                             </Card>

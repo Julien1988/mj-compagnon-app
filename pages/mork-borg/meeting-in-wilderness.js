@@ -34,7 +34,7 @@ const MeetingInWilderness = (data) => {
                             <ul className="list-container">
                                 <li className="list">
                                     <Link href="/mork-borg/meeting-in-wilderness">
-                                        <a onClick={handleSubmit} className="list-link">Générer un autre rencontre sauvage</a>
+                                    <a onClick={handleSubmit} className="list-link">Générer un autre résultat</a>
                                     </Link>
                             </li>
                             <li className="list">

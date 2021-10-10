@@ -43,6 +43,11 @@ const MorkBorg = () => {
                                 <Link href="/mork-borg/the-village-is">
                                     <a onClick={handleSubmit} className="list-link">Le village est</a>
                                 </Link>
+                        </li>
+                        <li className="list">
+                                <Link href="/mork-borg/looking-for-food">
+                                    <a onClick={handleSubmit} className="list-link">Chercher de la nourriture</a>
+                                </Link>
                             </li>
                         </ul>
             }

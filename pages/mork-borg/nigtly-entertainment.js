@@ -23,9 +23,6 @@ const NigtlyEntertainment = (data) => {
                             <Card>
                                 {
                                     <Card.Content>
-                                        <Card.Header>
-                                        <p>Animation nocture</p>
-                                        </Card.Header>
                                     <p>{ data.nightly_entertainment }</p>
                                     </Card.Content>
                                 }
@@ -34,7 +31,7 @@ const NigtlyEntertainment = (data) => {
                             <ul className="list-container">
                                 <li className="list">
                                     <Link href="/mork-borg/nigtly-entertainment">
-                                        <a onClick={handleSubmit} className="list-link">Générer une autre animations nocturnes au camping</a>
+                                    <a onClick={handleSubmit} className="list-link">Générer un autre résultat</a>
                                     </Link>
                             </li>
                             <li className="list">

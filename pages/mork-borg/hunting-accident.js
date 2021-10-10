@@ -14,7 +14,7 @@ const HuntingAccident = (data) => {
     },[data]);
     return (
         <div className='container main-container'>
-          <h1>HuntingAccident</h1>
+          <h1>Accident de chasse</h1>
           {
                isSubmitting
                     ? <Loader active inline="centered"/>
@@ -23,9 +23,7 @@ const HuntingAccident = (data) => {
                             <Card>
                                 {
                                     <Card.Content>
-                                        <Card.Header>
-                                        <p>Accident de chasse</p>
-                                        </Card.Header>
+                                       
                                         <p>{ data.hunting_accident }</p>
                                     </Card.Content>
                                 }
@@ -34,7 +32,7 @@ const HuntingAccident = (data) => {
                             <ul className="list-container">
                                 <li className="list">
                                     <Link href="/mork-borg/hunting-accident">
-                                        <a onClick={handleSubmit} className="list-link">Générer une autre accident de chasse</a>
+                                    <a onClick={handleSubmit} className="list-link">Générer un autre résultat</a>
                                     </Link>
                             </li>
                             <li className="list">
