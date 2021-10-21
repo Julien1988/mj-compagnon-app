@@ -65,8 +65,8 @@ Menace.getInitialProps = async () => {
     let randomMenace = Math.floor(Math.random() * 25);
     const resMenace = await fetch(CONST_URL+'/api/mutant/arche-menace');
     const dataMenace = await resMenace.json();
-   
-    console.log(randomArcheMenace)
+    const randomArcheMenace = dataMenace[randomMenace]
+    //console.log(randomArcheMenace)
 
     return randomArcheMenace;
 
